@@ -1,41 +1,38 @@
 ---
-title: Pharmer Edit Nodegroup
+title: Pharmer Serve
 menu:
   product_pharmer_0.1.0-alpha.1:
-    identifier: pharmer-edit-nodegroup
-    name: Pharmer Edit Nodegroup
+    identifier: pharmer-serve
+    name: Pharmer Serve
     parent: reference
 product_name: pharmer
 menu_name: product_pharmer_0.1.0-alpha.1
 section_menu_id: reference
 ---
-## pharmer edit nodegroup
+## pharmer serve
 
-Edit a Kubernetes cluster NodeGroup
+Pharmer apiserver
 
 ### Synopsis
 
-Edit a Kubernetes cluster NodeGroup
+Pharmer apiserver
 
 ```
-pharmer edit nodegroup [flags]
+pharmer serve [flags]
 ```
 
 ### Examples
 
 ```
-pharmer edit nodegroup
+pharmer serve
 ```
 
 ### Options
 
 ```
-  -k, --cluster string   Name of the Kubernetes cluster
-      --do-not-delete    Set do not delete flag
-  -f, --file string      Load nodegroup data from file
-  -h, --help             help for nodegroup
-  -o, --output string    Output format. One of: yaml|json. (default "yaml")
-      --owner string     Current user id (default "tamal")
+  -h, --help                    help for serve
+      --nats-client-id string   Nats streaming server client id (default "worker-p")
+      --nats-url string         Nats streaming server url (default "nats://localhost:4222")
 ```
 
 ### Options inherited from parent commands
@@ -57,5 +54,5 @@ pharmer edit nodegroup
 
 ### SEE ALSO
 
-* [pharmer edit](/docs/reference/pharmer_edit.md)	 - 
+* [pharmer](/docs/reference/pharmer.md)	 - Pharmer by Appscode - Manages farms
 

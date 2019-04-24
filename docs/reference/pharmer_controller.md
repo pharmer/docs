@@ -1,41 +1,33 @@
 ---
-title: Pharmer Edit Nodegroup
+title: Pharmer Controller
 menu:
   product_pharmer_0.1.0-alpha.1:
-    identifier: pharmer-edit-nodegroup
-    name: Pharmer Edit Nodegroup
+    identifier: pharmer-controller
+    name: Pharmer Controller
     parent: reference
 product_name: pharmer
 menu_name: product_pharmer_0.1.0-alpha.1
 section_menu_id: reference
 ---
-## pharmer edit nodegroup
+## pharmer controller
 
-Edit a Kubernetes cluster NodeGroup
+Bootstrap as a Kubernetes master or node
 
 ### Synopsis
 
-Edit a Kubernetes cluster NodeGroup
+Bootstrap as a Kubernetes master or node
 
 ```
-pharmer edit nodegroup [flags]
-```
-
-### Examples
-
-```
-pharmer edit nodegroup
+pharmer controller [flags]
 ```
 
 ### Options
 
 ```
-  -k, --cluster string   Name of the Kubernetes cluster
-      --do-not-delete    Set do not delete flag
-  -f, --file string      Load nodegroup data from file
-  -h, --help             help for nodegroup
-  -o, --output string    Output format. One of: yaml|json. (default "yaml")
-      --owner string     Current user id (default "tamal")
+  -h, --help                          help for controller
+      --machine-setup-config string   path to the machine setup config (default "/etc/machinesetup/machine_setup_configs.yaml")
+  -o, --owner string                  Current user id
+      --provider string               Cloud provider name (default "digitalocean")
 ```
 
 ### Options inherited from parent commands
@@ -57,5 +49,5 @@ pharmer edit nodegroup
 
 ### SEE ALSO
 
-* [pharmer edit](/docs/reference/pharmer_edit.md)	 - 
+* [pharmer](/docs/reference/pharmer.md)	 - Pharmer by Appscode - Manages farms
 
