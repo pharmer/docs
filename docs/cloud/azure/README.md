@@ -1,47 +1,48 @@
 ---
 title: Azure Overview
 menu:
-  product_pharmer_0.1.0-alpha.1:
-    identifier: azure-overview
-    name: Overview
-    parent: azure
-    weight: 10
+product_pharmer_0.3.0
+identifier: azure-overview
+name: Overview
+parent: azure
+weight: 10
 product_name: pharmer
-menu_name: product_pharmer_0.1.0-alpha.1
+menu_name: product_pharmer_0.3.0
 section_menu_id: cloud
-url: /products/pharmer/0.1.0-alpha.1/cloud/azure/
+url: /products/pharmer/0.3.0/cloud/azure/
 aliases:
-  - /products/pharmer/0.1.0-alpha.1/cloud/azure/README/
+- /products/pharmer/0.3.0/cloud/azure/README/
 ---
 
-# Running Kubernetes on [Azure](https://azure.microsoft.com/)
+# Running Kubernetes on [Azure](https://azure.microsoft.com)
 
-Following example will use `pharmer ` to create a Kubernetes cluster with 1 worker nodes and 3 masters (i,e, 4 nodes in you cluster).
+Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in you cluster).
 
 ### Before you start
 
 As a prerequisite, you need to have `pharmer` installed.  To install `pharmer` run the following command.
 
 ```console
-mkdir -p $(go env GOPATH)/src/github.com/pharmer
-cd $(go env GOPATH)/src/github.com/pharmer
-git clone https://github.com/pharmer/pharmer
-cd pharmer
-./hack/make.py
+$ mkdir -p $(go env GOPATH)/src/github.com/pharmer
+$ cd $(go env GOPATH)/src/github.com/pharmer
+$ git clone https://github.com/pharmer/pharmer
+$ cd pharmer
+$ ./hack/make.py
 
-pharmer -h
+$ pharmer -h
 ```
 
 ### Pharmer storage
 
-To store your cluster  and credential resource, `pharmer` use [vfs](/docs/cli/vfs.md) as default storage
-provider. There is another provider [postgres database](/docs/cli/xorm.md) available for storing resources.
+To store your cluster  and credential resource, `pharmer` use [vfs](/docs/cli/vfs.md) as default storage provider. There is another provider [postgres database](/docs/cli/xorm.md) available for storing resources.
 
 To know more click [here](/docs/cli/datastore.md)
 
 In this document we will use local file system ([vfs](/docs/cli/vfs.md)) as a storage provider.
 
 ### Credential importing
+
+
 
 **Tenant ID:**
 From the Portal, if you click on the Help icon in the upper right and then choose `Show Diagnostics` you can find the tenant id in the diagnostic JSON.
@@ -52,7 +53,7 @@ You can also find TenantID from the endpoints URL
 
 From command line, run the following command and paste the api key.
 ```console
-$ pharmer create credential azur --issue
+$ pharmer create credential azure --issue
 ```
 ![azure-credential](/docs/images/azure/azure-credential.png)
 
@@ -82,8 +83,9 @@ Here,
  - `spec.data.clientSecret` is the secret
  - `spec.data.subscriptionID`  is the subscription id of azure account
  - `spec.data.tenantID` is tenant id that you provided which can be edited by following command:
+ 
 ```console
-$ phrmer edit credential azur
+$ phrmer edit credential 
 ```
 
 To see the all credentials you need to run following command.
@@ -91,7 +93,7 @@ To see the all credentials you need to run following command.
 ```console
 $ pharmer get credentials
 NAME         Provider       Data
-azur         Azure          tenantID=77226, subscriptionID=1bfc, clientID=bfd2fee, clientSecret=*****
+azure        Azure          tenantID=77226, subscriptionID=1bfc, clientID=bfd2fee, clientSecret=*****
 ```
 You can also see the stored credential from the following location:
 ```console
@@ -106,19 +108,23 @@ You can find other credential operations [here](/docs/credential.md)
 There are two steps to create a Kubernetes cluster using `pharmer`. In first step `pharmer` create basic configuration file with user choice. Then in second step `pharmer` applies those information to create cluster on specific provider.
 
 Here, we discuss how to use `pharmer` to create a Kubernetes cluster on `azure`
- * **Cluster Creating:** We want to create a cluster with following information:
-    - Provider: azure
-    - Cluster name: az1
-    - Location: eastus2 (Virginia)
-    - Number of nodes: 1
-    - Node sku: Standard_B2ms
-    - Kubernetes version: 1.13.5
-    - Credential name: [azure](#credential-importing)
+
+#### Cluster Creating
+
+We want to create a cluster with following information:
+
+- Provider: azure
+- Cluster name: azure
+- Location: eastus2
+- Number of master nodes: 3
+- Number of worker nodes: 1
+- Worker Node sku: Standard_B2ms (cpu: 2, memory: 4 Gb)
+- Kubernetes version: v1.13.5
+- Credential name: [azure](#credential-importing)
 
 For location code and sku details click [hrere](https://github.com/pharmer/cloud/blob/master/data/json/apis/cloud.pharmer.io/v1/cloudproviders/azure.json)
 
 Available options in `pharmer` to create a cluster are:
- 
  ```console
  $ pharmer create cluster -h
  Create a Kubernetes cluster for a given cloud provider
@@ -162,27 +168,22 @@ Global Flags:
 So, we need to run following command to create cluster with our information.
 
 ```console
-$ pharmer create cluster az1 \
-	--v=5 \
-	--provider=azure \
-	--zone=westus2 \
-	--nodes=Standard_D1_v2=1 \
-	--credential-uid=azur \
-	--kubernetes-version=v1.11.0
-  pharmer create cluster az1 \
+$ pharmer create cluster azure-1 \
     --masters 3 \
-    --provider=azure \
-    --zone=eastus2 \
-    --nodes=Standard_B2ms=1 \
-    --credential-uid=azure \
-    --kubernetes-version=v1.13.5
+    --provider azure \
+    --zone eastus2 \
+    --nodes Standard_B2ms=1 \
+    --credential-uid azure \
+    --kubernetes-version v1.13.5
 ```
 
 To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/networking.md)
 
 The directory structure of the storage provider will be look like:
 
+
 ```console
+$ tree ~/.pharmer/store.d/$USER/clusters/
 /home/<user>/.pharmer/store.d/<user>/clusters/
 ├── az1
 │   ├── machine
@@ -207,8 +208,9 @@ The directory structure of the storage provider will be look like:
 └── az1.json
 
 6 directories, 15 files
-
 ```
+
+
 Here,
   - `machine`: conntains information about the master machines to be deployed
   - `machineset`: contains information about the machinesets to be deployed
@@ -218,14 +220,9 @@ Here,
 
 You can view your cluster configuration file by following command.
 
+ 
 ```yaml
 $ pharmer get cluster az1 -o yaml
-
-```
-
-You can modify this configuration by:
-```yaml
-$ pharmer edit cluster az1
 apiVersion: cluster.pharmer.io/v1beta1
 kind: Cluster
 metadata:
@@ -328,15 +325,26 @@ status:
   phase: Pending
 ```
 
- **Applying:** If everything looks ok, we can now apply the resources. This actually creates resources on `azure`.
- Up to now we've only been working locally.
 
- To apply run:
+You can modify this configuration by:
+```console
+$ pharmer edit cluster az1
+```
+
+#### Applying 
+
+If everything looks ok, we can now apply the resources. This actually creates resources on `azure`.
+Up to now we've only been working locally.
+
+To apply run:
+
  ```console
 $ pharmer apply az1
 ```
 
-Now, `pharmer` will apply that configuration, thus create a Kubernetes cluster. After completing task the configuration file of the cluster will be look like
+Now, `pharmer` will apply that configuration, this create a Kubernetes cluster. After completing task the configuration file of the cluster will be look like
+
+ 
 ```yaml
 $ pharmer get cluster az1 -o yaml
 kind: Cluster
@@ -489,20 +497,23 @@ status:
       dns: az1-d30d08c.eastus2.cloudapp.azure.com
       ip: 52.232.224.99
       port: 6443
- ```
+```
+
 
 Here,
+
   - `status.phase`: is ready. So, you can use your cluster from local machine.
   - `status.clusterApi.status.apiEndpoints` is the cluster's apiserver address
-  - `status.cloud.azure` contains provider resource information that are created by `pharmer` while creating cluster.
 
 To get the `kubectl` configuration file(kubeconfig) on your local filesystem run the following command.
+
 ```console
 $ pharmer use cluster az1
 ```
 If you don't have `kubectl` installed click [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-Now you can run `kubectl get nodes` and verify that your kubernetes 1.13.5 is running.
+Now you can run `kubectl get nodes` and verify that your kubernetes v1.13.5 is running.
+
 
 ```console
 $ kubectl get nodes
@@ -512,6 +523,9 @@ az1-master-1               Ready    master   11m     v1.13.5
 az1-master-2               Ready    master   17m     v1.13.5
 standard-b2ms-pool-fpvhk   Ready    node     7m23s   v1.13.5
 ```
+
+
+
 
 You can ssh to the nodes from bastion node.
 
@@ -529,6 +543,7 @@ capi@az1-bastion:~$ ssh 10.0.0.4
 capi@az1-master-0:~$
 ```
 
+
 ### Cluster Scaling
 
 Scaling a cluster refers following meanings
@@ -539,21 +554,25 @@ Scaling a cluster refers following meanings
 - Delete existing machine, machine-set and machine-deployments
 
 You can see the machine and machine-sets deployed in the cluster
+
+
 ```console
+
 $ kubectl get machines
-NAME                   AGE
-az1-master-0         27m
-az1-master-1         27m
-az1-master-2         27m
-t2.medium-pool-4mnwg   27m
+NAME                    AGE
+az1-master-0        27m
+az1-master-1        27m
+az1-master-2        27m
+standard-b2ms-pool-smnwg 27m
 
 $ kubectl get machinesets
-NAME             AGE
-t2.medium-pool   27m
+NAME                AGE
+standard-b2ms-pool   27m
 ```
 
-#### Create new master machines
 
+
+#### Deploy new master machines
 You can create new master machine by the deploying the following yaml
 
 ```yaml
@@ -591,9 +610,13 @@ spec:
     controlPlane: v1.13.5
 ```
 
+ 
+
 #### Create new worker machines
 
 You can create new worker machines by deploying the following yaml
+
+
 ```yaml
 apiVersion: cluster.k8s.io/v1alpha1
   kind: Machine
@@ -628,9 +651,12 @@ apiVersion: cluster.k8s.io/v1alpha1
       kubelet: v1.13.5
 ```
 
+
 #### Create new machinesets
 
-You can deploy new machinesets by deploying the following yaml
+You can create new machinesets by deploying the following yaml
+
+
 ```yaml
 kind: MachineSet
 apiVersion: cluster.k8s.io/v1alpha1
@@ -680,8 +706,12 @@ spec:
         kubelet: v1.13.5
 ```
 
+
 #### Create new machine-deployments
+
 You can create new machine-deployments by deploying the following yaml
+
+ 
 ```yaml
 kind: MachineDeployment
 apiVersion: cluster.k8s.io/v1alpha1
@@ -732,30 +762,61 @@ spec:
 ```
 
 
+#### Scale Cluster
+
+You can also update number of nodes of an existing machine-set and machine-deployment using
+
+```console
+$ kubectl edit <machineset-name> 
+$ kubectl edit <machinedeployment-name> 
+```
+and update the `spec.replicas` field
+
+#### Delete nodes
+
+You can delete machines using
+
+```console
+$ kubectl delete machine <machine-name>
+```
+Warning: if the machine is controlled by a machineset, a new machine will be created. You should update/delete machineset in that case
+
+You can delete machine-set and machine-deployments using
+
+```console
+$ kubectl delete machineset <machineset-name>
+$ kubectl delete machinedeployment <machinedeployment-name>
+```
+
 ### Cluster Upgrading
 
 #### Upgrade master machines
+
 You can deploy new master machines with specifying new version in `spec.version.controlPlane` and `spec.version.kubelet`. After new master machines are ready, you can safely delete old ones
 
 #### Upgrade worker machines
+
 You can upgrade worker machines by editing machine-deployment
+
 ``` console
 $ kubectl edit machinedeployments <machinedeployment-name>
 ```
+
 and updating the `spec.version.kubelet`
 
 To upgrade machinesets, you have to deploy new machinesets with specifying new version in `spec.template.spec.version.kubelet`
-
 After new machines are ready, you can safely delete old machine-sets
 
 ## Cluster Deleting
 
 To delete your cluster run
+
 ```console
 $ pharmer delete cluster az1
 ```
 
 Then, the yaml file looks like
+
 
 ```yaml
 $ pharmer get cluster az1 -o yaml
@@ -776,13 +837,16 @@ status:
 ...
 ```
 
+
 Here,
 
 - `metadata.deletionTimestamp`: is set when cluster deletion command was applied.
 
-Now, to apply delete on provider cluster run
+Now, to apply delete operation of the cluster, run
+
 ```console
 $ pharmer apply az1
 ```
 
 **Congratulations !!!** , you're an official `pharmer` user now.
+

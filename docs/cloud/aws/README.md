@@ -1,35 +1,35 @@
 ---
 title: AWS Overview
 menu:
-  product_pharmer_0.1.0-alpha.1:
-    identifier: aws-overview
-    name: Overview
-    parent: aws
-    weight: 10
+product_pharmer_0.3.0
+identifier: aws-overview
+name: Overview
+parent: aws
+weight: 10
 product_name: pharmer
-menu_name: product_pharmer_0.1.0-alpha.1
+menu_name: product_pharmer_0.3.0
 section_menu_id: cloud
-url: /products/pharmer/0.1.0-alpha.1/cloud/aws/
+url: /products/pharmer/0.3.0/cloud/aws/
 aliases:
-  - /products/pharmer/0.1.0-alpha.1/cloud/aws/README/
+- /products/pharmer/0.3.0/cloud/aws/README/
 ---
 
-# Running Kubernetes on [AWS](https://aws.amazon.com/)
+# Running Kubernetes on [AWS](https://aws.amazon.com)
 
-Following example will use `pharmer ` to create a Kubernetes cluster with 1 worker nodes and 3 masters (i,e, 4 nodes in you cluster).
+Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in you cluster).
 
 ### Before you start
 
 As a prerequisite, you need to have `pharmer` installed.  To install `pharmer` run the following command.
 
 ```console
-mkdir -p $(go env GOPATH)/src/github.com/pharmer
-cd $(go env GOPATH)/src/github.com/pharmer
-git clone https://github.com/pharmer/pharmer
-cd pharmer
-./hack/make.py
+$ mkdir -p $(go env GOPATH)/src/github.com/pharmer
+$ cd $(go env GOPATH)/src/github.com/pharmer
+$ git clone https://github.com/pharmer/pharmer
+$ cd pharmer
+$ ./hack/make.py
 
-pharmer -h
+$ pharmer -h
 ```
 
 ### Pharmer storage
@@ -42,7 +42,8 @@ In this document we will use local file system ([vfs](/docs/cli/vfs.md)) as a st
 
 ### Credential importing
 
-* **Setup IAM User**
+
+#### Setup IAM User
 
 In order to create cluster within [AWS](https://aws.amazon.com/), `pharmer` needs a dedicated IAM user. `pharmer` use this user's API credential.
 
@@ -62,7 +63,6 @@ $ aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/IAMFullAccess
 $ aws iam attach-group-policy --policy-arn arn:aws:iam::aws:policy/AmazonVPCFullAccess --group-name pharmer
 $ aws iam create-user --user-name pharmer
 
-
 $ aws iam add-user-to-group --user-name pharmer --group-name pharmer
 $ aws iam create-access-key --user-name pharmer
 ```
@@ -70,14 +70,17 @@ $ aws iam create-access-key --user-name pharmer
 Use this access key while importing credentials on pharmer
 
 From command line, run the following command and paste those keys.
+
 ```console
 $ pharmer create credential aws
 ```
+
 ![aws-credential](/docs/images/aws/aws-credential.png)
 
 Here, `aws` is the credential name, which must be unique within your storage.
 
 To view credential file you can run:
+
 ```yaml
 $ pharmer get credentials aws -o yaml
 apiVersion: v1beta1
@@ -91,6 +94,7 @@ spec:
     secretAccessKey: <access-key>
   provider: aws
 ```
+
 Here,
  - `spec.data.accessKeyID` is the aws access key id
  - `spec.data.secretAccessKey` is the security access key that you provided which can be edited by following command:
@@ -103,7 +107,7 @@ To see the all credentials you need to run following command.
 ```console
 $ pharmer get credentials
 NAME         Provider       Data
-aws          AWS            accessKeyID=AKIAJKUZAD3HM7OEKPNA, secretAccessKey=*****
+aws          aws            accessKeyID=AKIAJKUZAD3HM7OEKPNA, secretAccessKey=*****
 ```
 
 You can also see the stored credential from the following location:
@@ -111,28 +115,34 @@ You can also see the stored credential from the following location:
 ~/.pharmer/store.d/$USER/credentials/aws.json
 ```
 
- **Cluster IAM User**
+#### Cluster IAM User
 
  While creating cluster within AWS `pharmer` creates following IAM roles and policies
- * [IAM master policy](https://github.com/pharmer/pharmer/blob/0.3.1/cloud/providers/aws/iam.go#L6)
- * [IAM controller policy](https://github.com/pharmer/pharmer/blob/0.3.1/cloud/providers/aws/iam.go#L77)
- * [IAM master role](https://github.com/pharmer/pharmer/blob/0.3.1/cloud/providers/aws/iam.go#L160)
- * [IAM node policy](https://github.com/pharmer/pharmer/blob/0.3.1/cloud/providers/aws/iam.go#L175)
- * [IAM node role](https://github.com/pharmer/pharmer/blob/0.3.1/cloud/providers/aws/iam.go#L200)
+ * [IAM master policy](https://github.com/pharmer/pharmer/blob/0.3.0/cloud/providers/aws/iam.go#L6)
+ * [IAM controller policy](https://github.com/pharmer/pharmer/blob/0.3.0/cloud/providers/aws/iam.go#L77)
+ * [IAM master role](https://github.com/pharmer/pharmer/blob/0.3.0/cloud/providers/aws/iam.go#L160)
+ * [IAM node policy](https://github.com/pharmer/pharmer/blob/0.3.0/cloud/providers/aws/iam.go#L175)
+ * [IAM node role](https://github.com/pharmer/pharmer/blob/0.3.0/cloud/providers/aws/iam.go#L200)
+
 
 ### Cluster provisioning
 
 There are two steps to create a Kubernetes cluster using `pharmer`. In first step `pharmer` create basic configuration file with user choice. Then in second step `pharmer` applies those information to create cluster on specific provider.
 
 Here, we discuss how to use `pharmer` to create a Kubernetes cluster on `aws`
- * **Cluster Creating:** We want to create a cluster with following information:
-    - Provider: aws
-    - Cluster name: aws-1
-    - Location: us-east-1b (N. Virginia)
-    - Number of nodes: 2
-    - Node sku: t2.medium (cpu: 2, ram: 4 Gb)
-    - Kubernetes version: 1.13.5
-    - Credential name: [aws](#credential-importing)
+
+#### Cluster Creating
+
+We want to create a cluster with following information:
+
+- Provider: aws
+- Cluster name: aws
+- Location: us-east-1b
+- Number of master nodes: 3
+- Number of worker nodes: 1
+- Worker Node sku: t2.medium (cpu: 2, memory: 4 Gb)
+- Kubernetes version: v1.13.5
+- Credential name: [aws](#credential-importing)
 
 For location code and sku details click [hrere](https://github.com/pharmer/cloud/blob/master/data/json/apis/cloud.pharmer.io/v1/cloudproviders/aws.json)
 
@@ -177,24 +187,25 @@ Global Flags:
       --vmodule moduleSpec               comma-separated list of pattern=N settings for file-filtered logging
  ```
 
- So, we need to run following command to create cluster with our information.
+So, we need to run following command to create cluster with our information.
 
 ```console
 $ pharmer create cluster aws-1 \
     --masters 3 \
-    --provider=aws \
-    --zone=us-east-1b \
-    --nodes=t2.medium=1 \
-    --credential-uid=aws \
-    --kubernetes-version=v1.13.5
+    --provider aws \
+    --zone us-east-1b \
+    --nodes t2.medium=1 \
+    --credential-uid aws \
+    --kubernetes-version v1.13.5
 ```
 
 To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/networking.md)
 
 The directory structure of the storage provider will be look like:
 
+
 ```console
-tree ~/.pharmer/store.d/$USER/clusters/
+$ tree ~/.pharmer/store.d/$USER/clusters/
 /home/<user>/.pharmer/store.d/<user>/clusters/
 ├── aws-1
 │   ├── machine
@@ -220,6 +231,8 @@ tree ~/.pharmer/store.d/$USER/clusters/
 
 6 directories, 15 files
 ```
+
+
 Here,
   - `machine`: conntains information about the master machines to be deployed
   - `machineset`: contains information about the machinesets to be deployed
@@ -228,6 +241,8 @@ Here,
   - `aws-1.json`: contains the cluster resource information
 
 You can view your cluster configuration file by following command.
+
+ 
 ```yaml
 $ pharmer get cluster aws-1 -o yaml
 apiVersion: cluster.pharmer.io/v1beta1
@@ -327,19 +342,26 @@ status:
   phase: Pending
 ```
 
+
 You can modify this configuration by:
 ```console
 $ pharmer edit cluster aws-1
 ```
 
-* **Applying:** If everything looks ok, we can now apply the resources. This actually creates resources on `aws`.
- Up to now we've only been working locally.
+#### Applying 
 
- To apply run:
+If everything looks ok, we can now apply the resources. This actually creates resources on `aws`.
+Up to now we've only been working locally.
+
+To apply run:
+
  ```console
 $ pharmer apply aws-1
 ```
- Now, `pharmer` will apply that configuration, this create a Kubernetes cluster. After completing task the configuration file of the cluster will be look like
+
+Now, `pharmer` will apply that configuration, this create a Kubernetes cluster. After completing task the configuration file of the cluster will be look like
+
+ 
 ```yaml
 $ pharmer get cluster aws-1 -o yaml
 apiVersion: cluster.pharmer.io/v1beta1
@@ -614,29 +636,30 @@ status:
   phase: Ready
 ```
 
+
 Here,
 
   - `status.phase`: is ready. So, you can use your cluster from local machine.
   - `status.clusterApi.status.apiEndpoints` is the cluster's apiserver address
-  - `status.cloud.aws` contains provider resource information that are created by `pharmer` while creating cluster.
 
 To get the `kubectl` configuration file(kubeconfig) on your local filesystem run the following command.
+
 ```console
 $ pharmer use cluster aws-1
 ```
 If you don't have `kubectl` installed click [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-Now you can run `kubectl get nodes` and verify that your kubernetes 1.13.5 is running.
+Now you can run `kubectl get nodes` and verify that your kubernetes v1.13.5 is running.
 
-```console
-$ kubectl get nodes
-kubectl get nodes
+
 NAME                         STATUS   ROLES    AGE     VERSION
 ip-10-0-0-101.ec2.internal   Ready    master   5m37s   v1.13.5
 ip-10-0-0-239.ec2.internal   Ready    master   6m28s   v1.13.5
 ip-10-0-0-27.ec2.internal    Ready    node     5m37s   v1.13.5
 ip-10-0-0-71.ec2.internal    Ready    master   8m36s   v1.13.5
-```
+
+
+
 
 You can ssh to the nodes from bastion node.
 
@@ -654,6 +677,8 @@ ubuntu@ip-10-0-1-245:~$ ssh 10.0.0.71
 ubuntu@ip-10-0-0-71:~$ 
 ```
 
+
+
 ### Cluster Scaling
 
 Scaling a cluster refers following meanings
@@ -664,6 +689,8 @@ Scaling a cluster refers following meanings
 - Delete existing machine, machine-set and machine-deployments
 
 You can see the machine and machine-sets deployed in the cluster
+
+
 ```console
 $ kubectl get machines
 NAME                   AGE
@@ -677,9 +704,10 @@ NAME             AGE
 t2.medium-pool   27m
 ```
 
-#### Deploy new master machines
 
-You can deploy new master machine by the deploying the following yaml
+
+#### Deploy new master machines
+You can create new master machine by the deploying the following yaml
 
 ```yaml
 apiVersion: cluster.k8s.io/v1alpha1
@@ -702,11 +730,14 @@ spec:
   versions:
     controlPlane: v1.13.5
     kubelet: v1.13.5
-```
 
-#### Deploy new worker machines
+ 
 
-You can deploy new worker machines by deploying the following yaml
+#### Create new worker machines
+
+You can create new worker machines by deploying the following yaml
+
+
 ```yaml
 apiVersion: cluster.k8s.io/v1alpha1
 kind: Machine
@@ -729,9 +760,12 @@ spec:
     kubelet: v1.13.5
 ```
 
-#### Deploy new machinesets
 
-You can deploy new machinesets by deploying the following yaml
+#### Create new machinesets
+
+You can create new machinesets by deploying the following yaml
+
+
 ```yaml
 apiVersion: cluster.k8s.io/v1alpha1
 kind: MachineSet
@@ -763,8 +797,14 @@ spec:
       versions:
         kubelet: v1.13.5
 ```
-#### Deploy new machine-deployments
-You can deploy new machine-deployments by deploying the following yaml
+
+
+#### Create new machine-deployments
+
+You can create new machine-deployments by deploying the following yaml
+
+ 
+
 ```yaml
 apiVersion: cluster.k8s.io/v1alpha1
 kind: MachineDeployment
@@ -797,9 +837,11 @@ spec:
         kubelet: v1.13.5
 ```
 
+
 #### Scale Cluster
 
 You can also update number of nodes of an existing machine-set and machine-deployment using
+
 ```console
 $ kubectl edit <machineset-name> 
 $ kubectl edit <machinedeployment-name> 
@@ -807,40 +849,50 @@ $ kubectl edit <machinedeployment-name>
 and update the `spec.replicas` field
 
 #### Delete nodes
+
 You can delete machines using
+
 ```console
 $ kubectl delete machine <machine-name>
 ```
 Warning: if the machine is controlled by a machineset, a new machine will be created. You should update/delete machineset in that case
 
 You can delete machine-set and machine-deployments using
+
 ```console
 $ kubectl delete machineset <machineset-name>
 $ kubectl delete machinedeployment <machinedeployment-name>
 ```
 
 ### Cluster Upgrading
+
 #### Upgrade master machines
+
 You can deploy new master machines with specifying new version in `spec.version.controlPlane` and `spec.version.kubelet`. After new master machines are ready, you can safely delete old ones
 
 #### Upgrade worker machines
+
 You can upgrade worker machines by editing machine-deployment
+
 ``` console
 $ kubectl edit machinedeployments <machinedeployment-name>
 ```
+
 and updating the `spec.version.kubelet`
 
 To upgrade machinesets, you have to deploy new machinesets with specifying new version in `spec.template.spec.version.kubelet`
-
 After new machines are ready, you can safely delete old machine-sets
 
 ## Cluster Deleting
 
 To delete your cluster run
+
 ```console
 $ pharmer delete cluster aws-1
 ```
+
 Then, the yaml file looks like
+
 
 ```yaml
 $ pharmer get cluster a1 -o yaml
@@ -860,13 +912,17 @@ status:
 ...
 ...
 ```
+
+
 Here,
 
 - `metadata.deletionTimestamp`: is set when cluster deletion command was applied.
 
-Now, to apply delete the cluster, run
+Now, to apply delete operation of the cluster, run
+
 ```console
 $ pharmer apply aws-1
 ```
 
 **Congratulations !!!** , you're an official `pharmer` user now.
+
