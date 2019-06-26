@@ -2,110 +2,48 @@
 
 Following example will use `pharmer ` to create a Kubernetes cluster with 1 worker node server and a master server (i,e, 2 servers in you cluster).
 
-### Before you start
+## Before you start
 
-As a prerequisite, you need to have `pharmer` installed.  To install `pharmer` run the following command.
+As a prerequisite, you need to have `pharmer` installed.  To install `pharmer` use the [setup](/docs/setup/install.md) guide
 
+## Pharmer storage
+
+To store your cluster  and credential resource, you can configure pharmer to use local file system or postgres database. In this document we will use local file system ([vfs](/docs/concepts/datastore/vfs.md)) as a storage provider. To know more click [here](/docs/concepts/datastore/datastore.md)
+
+
+## Credential Importing
+
+You can create a credential named `azur` by running
 ```console
-mkdir -p $(go env GOPATH)/src/github.com/pharmer
-cd $(go env GOPATH)/src/github.com/pharmer
-git clone https://github.com/pharmer/pharmer
-cd pharmer
-go install -v
-
-pharmer -h
+$ pharmer create credential azur
 ```
 
-### Pharmer storage
-
-To store your cluster  and credential resource, `pharmer` use [vfs](/docs/cli/vfs.md) as default storage
-provider. There is another provider [postgres database](/docs/cli/xorm.md) available for storing resources.
-
-To know more click [here](/docs/cli/datastore.md)
-
-In this document we will use local file system ([vfs](/docs/cli/vfs.md)) as a storage provider.
-
-### Credential importing
-
-**Tenant ID:**
-From the Portal, if you click on the Help icon in the upper right and then choose `Show Diagnostics` you can find the tenant id in the diagnostic JSON.
-
-You can also find TenantID from the endpoints URL
-
-![azure-api-key](/docs/images/azure/azure-api-key.png)
-
-From command line, run the following command and paste the api key.
-```console
-$ pharmer create credential azur --issue
-```
-![azure-credential](/docs/images/azure/azure-credential.png)
-
-Here, `azure` is the credential name, which must be unique within your storage. With `issue` flag you can issue new credential.
-If you want to use your existing credential then no need to pass `issue` flag.
-
-To view credential file you can run:
-
-```yaml
-$ pharmer get credential azur -o yaml
-apiVersion: v1alpha1
-kind: Credential
-metadata:
-  creationTimestamp: null
-  name: azur
-spec:
-  data:
-    clientID: <client id>
-    clientSecret: <client secret>
-    subscriptionID: <subscription id>
-    tenantID: <tenant id>
-  provider: azure
-
-```
-
-Here,
- - `spec.data.clientID` is the azure client id
- - `spec.data.clientSecret` is the secret
- - `spec.data.subscriptionID`  is the subscription id of azure account
- - `spec.data.tenantID` is tenant id that you provided which can be edited by following command:
-```console
-$ phrmer edit credential azur
-```
-
-To see the all credentials you need to run following command.
-
-```console
-$ pharmer get credentials
-NAME         Provider       Data
-azur         Azure          tenantID=77226, subscriptionID=1bfc, clientID=bfd2fee, clientSecret=*****
-```
-You can also see the stored credential from the following location:
-```console
-~/.pharmer/store.d/$USER/credentials/azur.json
-```
-
-You can find other credential operations [here](/docs/credential.md)
+Follow this guide for more information [here](/docs/guides/aks/credentials/README.md)
 
 
-### Cluster provisioning
+## Cluster provisioning
 
 There are two steps to create a Kubernetes cluster using `pharmer`.
 In first step `pharmer` create basic configuration file with user choice. Then in second step `pharmer` applies those
 information to create cluster on specific provider.
 
-Here, we discuss how to use `pharmer` to create a Kubernetes cluster on `azure`
- * **Cluster Creating:** We want to create a cluster with following information:
+Here, we discuss how to use `pharmer` to create a Kubernetes cluster on `azure aks`
+ 
+### Create Cluster
+
+We want to create a cluster with following information:
     - Provider: Azure
     - Cluster name: aksx
     - Location: eastus (Virginia)
     - Number of nodes: 1
     - Node sku: Standard_D1_v2 (cpu: 1, ram: 3.5, disk: 50)
-    - Kubernetes version: 1.10.3
+    - Kubernetes version: 1.14.1
     - Credential name: [azur](#credential-importing)
 
 For location code and sku details click [hrere](https://github.com/pharmer/cloud/blob/master/data/json/apis/cloud.pharmer.io/v1/cloudproviders/azure.json)
- Available options in `pharmer` to create a cluster are:
+ 
+Available options in `pharmer` to create a cluster are:
  ```console
-$ pharmer create cluster -h
 Create a Kubernetes cluster for a given cloud provider
 
 Usage:
@@ -121,8 +59,11 @@ Flags:
       --credential-uid string       Use preconfigured cloud credential uid
   -h, --help                        help for cluster
       --kubernetes-version string   Kubernetes version
+      --masters int                 Number of masters (default 1)
+      --namespace string            Namespace (default "default")
       --network-provider string     Name of CNI plugin. Available options: calico, flannel, kubenet, weavenet (default "calico")
       --nodes stringToInt           Node set configuration (default [])
+  -o, --owner string                Current user id
       --provider string             Provider name
       --zone string                 Cloud provider zone name
 
@@ -131,10 +72,13 @@ Global Flags:
       --analytics                        Send analytical events to Google Guard (default true)
       --config-file string               Path to Pharmer config file
       --env string                       Environment used to enable debugging (default "prod")
+      --kubeconfig string                Paths to a kubeconfig. Only required if out-of-cluster.
+      --log-flush-frequency duration     Maximum number of seconds between log flushes (default 5s)
       --log_backtrace_at traceLocation   when logging hits line file:N, emit a stack trace (default :0)
       --log_dir string                   If non-empty, write log files in this directory
       --logtostderr                      log to standard error instead of files (default true)
-      --stderrthreshold severity         logs at or above this threshold go to stderr (default 2)
+      --master --kubeconfig              (Deprecated: switch to --kubeconfig) The address of the Kubernetes API server. Overrides any value in kubeconfig. Only required if out-of-cluster.
+      --stderrthreshold severity         logs at or above this threshold go to stderr
   -v, --v Level                          log level for V logs
       --vmodule moduleSpec               comma-separated list of pattern=N settings for file-filtered logging
 ```
@@ -142,14 +86,10 @@ Global Flags:
 So, we need to run following command to create cluster with our information.
 
 ```console
-$ pharmer create cluster aksx \
-	--v=5 \
-	--provider=aks \
-	--zone=eastus \
-	--nodes=Standard_D1_v2=1 \
-	--credential-uid=azur \
-	--kubernetes-version=1.10.3
-
+$ pharmer create cluster aksx --v=4 --provider=aks --zone=eastus --nodes=Standard_D1_v2=1	--credential-uid=azur --kubernetes-version=1.14.1
+I0626 15:29:31.675278    8568 create.go:24] [create-cluster] "level"=0 "msg"="creating cluster" "cluster-name"="aksx" 
+I0626 15:29:31.675516    8568 create.go:46] [create-cluster] "level"=2 "msg"="cluster doesn't exists, ignoring error" "cluster-name"="aksx" "error"="cluster `aksx` does not exist. Reason: not found"
+I0626 15:29:32.724306    8568 create.go:75] [create-cluster] "level"=0 "msg"="successfully created cluster" "cluster-name"="aksx" 
 ```
 
 To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/networking.md)
@@ -157,37 +97,37 @@ To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-adminis
 The directory structure of the storage provider will be look like:
 
 ```console
-~/.pharmer/store.d/$USER/clusters/
-        |-- v1
-        |    |__ nodegroups
-        |    |       |
-        |    |       |__ Standard-D1-v2-pool.json
-        |    |
-        |    |--- pki
-        |    |     |__ ca.crt
-        |    |     |
-        |    |     |__ ca.key
-        |    |     |
-        |    |     |__ front-proxy-ca.crt
-        |    |     |
-        |    |     |__ fron-proxy-ca.key
-        |    |
-        |    |__ ssh
-        |          |__ id_aksx-4wa6cz
-        |          |
-        |          |__ id_aksx-4wa6cz.pub
-        |
-        |__ aksx.json
+$ tree ~/.pharmer/store.d/clusters/aksx
+├──aksx
+│   ├── machineset
+│   │   └── standard-b2ms-pool.json
+│   ├── pki
+│   │   ├── ca.crt
+│   │   ├── ca.key
+│   │   ├── etcd
+│   │   │   ├── ca.crt
+│   │   │   └── ca.key
+│   │   ├── front-proxy-ca.crt
+│   │   ├── front-proxy-ca.key
+│   │   ├── sa.crt
+│   │   └── sa.key
+│   └── ssh
+│       ├── idaksx-sshkey
+│       └── idaksx-sshkey.pub
+└──aksx.json
+
+5 directories, 12 files
+
 ```
 Here,
-
-   - `/v1/nodegroups/`: contains the node groups information. [Check below](#cluster-scaling) for node group operations.You can see the node group list using following command.
-   ```console
+- `aksx/machineset/`: contains the node groups information. [Check below](#cluster-scaling) for node group operations.You can see the node group list using following command.
+   
+```console
 $ pharmer get nodegroups -k aksx
 ```
-   - `v1/pki`: contains the cluster certificate information containing `ca` and `front-proxy-ca`.
-   - `v1/ssh`: has the ssh credentials on cluster's nodes. With this key you can `ssh` into any node on a cluster
-   - `v1.json`: contains the cluster resource information
+- `aksx/pki`: contains the cluster certificate information containing `ca` and `front-proxy-ca`.
+- `aksx/ssh`: has the ssh credentials on cluster's nodes. With this key you can `ssh` into any node on a cluster
+- `aksx.json`: contains the cluster resource information
 You can view your cluster configuration file by following command.
 
 ```yaml
@@ -226,7 +166,6 @@ spec:
 status:
   cloud: {}
   phase: Pending
-
 ```
 
 Here,
@@ -244,12 +183,12 @@ You can modify this configuration by:
 $ pharmer edit cluster aksx
 ```
 
+## Applying Cluster
+If everything looks ok, we can now apply the resources. This actually creates resources on `Scaleway`.
+Up to now we've only been working locally.
 
- **Applying:** If everything looks ok, we can now apply the resources. This actually creates resources on `Scaleway`.
- Up to now we've only been working locally.
-
- To apply run:
- ```console
+To apply run:
+```console
 $ pharmer apply aksx
 ```
 
@@ -293,14 +232,13 @@ status:
   phase: Ready
  ```
 
-Here,
-
-  `status.phase`: is ready. So, you can use your cluster from local machine.
+Here,`status.phase`: is ready. So, you can use your cluster from local machine.
 
 To get the `kubectl` configuration file(kubeconfig) on your local filesystem run the following command.
 ```console
 $ pharmer use cluster aksx
 ```
+
 If you don't have `kubectl` installed click [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 Now you can run `kubectl get nodes` and verify that your kubernetes 1.9.0 is running.
@@ -311,7 +249,7 @@ NAME                        STATUS    AGE       VERSION
 aks-sd1v2p-33941960-0   Ready     agent     35m       v1.10.3
 ```
 
-### Cluster Scaling
+## Cluster Scaling
 
 Scaling a cluster refers following meanings:-
  1. Increment the number of nodes of a certain node group
@@ -325,7 +263,7 @@ NAME               Cluster   Node      SKU
 Standard-D1-v2-pool   aksx      1         Standard_D1_v2
 ```
 
-* **Updating existing NG**
+## Updating existing NG
 
 For scenario 1 & 2 we need to update our existing node group. To update existing node group configuration run
 the following command.
@@ -382,7 +320,6 @@ NAME               Cluster   Node      SKU
 Standard-D1-v2-pool   aksx      2         Standard_D1_v2
 ```
 
-
 ## Cluster Backup
 
 To get a backup of your cluster run the following command:
@@ -407,8 +344,6 @@ NodeGroup:
   Name                  Node
   ----                  ------
   Standard-D1-v2-pool   1
-
-
 ```
 
 Then, if you decided to upgrade you cluster run the command that are showing on describe command.
@@ -518,4 +453,3 @@ $ pharmer apply aksx
 ```
 
 **Congratulations !!!** , you're an official `pharmer` user now.
-
