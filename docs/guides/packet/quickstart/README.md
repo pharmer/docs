@@ -1,98 +1,23 @@
----
-title: Packet Overview
-menu:
-  product_pharmer_0.3.1:
-    identifier: packet-overview
-    name: Overview
-    parent: packet
-    weight: 10
-product_name: pharmer
-menu_name: product_pharmer_0.3.1
-section_menu_id: cloud
-url: /products/pharmer/0.3.1/cloud/packet/
-aliases:
-  - /products/pharmer/0.3.1/cloud/packet/README/
----
-
 # Running Kubernetes on [Packet](https://app.packet.net)
 
 Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster).
 
 ### Before you start
 
-As a prerequisite, you need to have `pharmer` installed.  To install `pharmer` run the following command.
-
-```console
-$ mkdir -p $(go env GOPATH)/src/github.com/pharmer
-$ cd $(go env GOPATH)/src/github.com/pharmer
-$ git clone https://github.com/pharmer/pharmer
-$ cd pharmer
-$ ./hack/make.py
-
-$ pharmer -h
-```
+As a prerequisite, you need to have `pharmer` installed.  To install `pharmer` use the [setup](/docs/setup/install.md) guide
 
 ### Pharmer storage
 
-To store your cluster  and credential resource, `pharmer` use [vfs](/docs/cli/vfs.md) as default storage provider. There is another provider [postgres database](/docs/cli/xorm.md) available for storing resources.
-
-To know more click [here](/docs/cli/datastore.md)
-
-In this document we will use local file system ([vfs](/docs/cli/vfs.md)) as a storage provider.
+To store your cluster  and credential resource, you can configure pharmer to use local file system or postgres database. In this document we will use local file system ([vfs](/docs/concepts/datastore/vfs.md)) as a storage provider. To know more click [here](/docs/concepts/datastore/datastore.md)
 
 ### Credential importing
 
-
-To get access on [packet](https://app.packet.net), `pharmer` needs credentials of `Packet`. To get the api key go to the **API Keys** section
-under **my profile** option. Here you see the `Add an API key`, create and copy that key.
-
-![packet-api-key](/docs/images/packet/packet-api-key.png)
-
-From command line, run the following command and paste the api key.
+You can create a credential named `packet` by running
 ```console
 $ pharmer create credential packet
 ```
-![packet-credential](/docs/images/packet/packet-credential.png)
 
-Here, `pack` is the credential name, which must be unique within your storage.
-
-To view credential file you can run:
-
-```yaml
-$ pharmer get credential packet -o yaml
-apiVersion: v1alpha1
-kind: Credential
-metadata:
-  creationTimestamp: 2017-11-02T11:31:34Z
-  name: packet
-spec:
-  data:
-    apiKey: <api-key>
-    projectID: <project-id>
-  provider: packet
-```
-Here,
- - `spec.data.projectID` is the packet project id
- - `spec.data.apiKey` is the access token that you provided which can be edited by following command:
-```console
-$ phrmer edit credential pack
-```
-
-
-To see the all credentials you need to run following command.
-
-```console
-$ pharmer get credentials
-NAME         Provider       Data
-packet       packet         projectID=6df2d99d...., apiKey=*****
-```
-You can also see the stored credential from the following location:
-```console
-~/.pharmer/store.d/$USER/credentials/pack.json
-```
-
-You can find other credential operations [here](/docs/credential.md)
-
+Follow this guide for more information [here](/docs/guides/packet/credentials/README.md)
 
 ### Cluster provisioning
 
