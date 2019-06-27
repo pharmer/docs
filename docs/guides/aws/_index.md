@@ -1,10 +1,10 @@
 ---
 title: AWS
 menu:
-  product_pharmer_0.3.1:
+  product_pharmer_0.3.2:
     identifier: aws
     name: AWS
     parent: cloud
     weight: 5
-menu_name: product_pharmer_0.3.1
+menu_name: product_pharmer_0.3.2
 ---
