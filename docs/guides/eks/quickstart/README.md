@@ -1,6 +1,6 @@
-# Running Kubernetes on [Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html)
+# Running Kubernetes Amazon EKS
 
-Following example will use `pharmer ` to create a Kubernetes cluster with 1 worker node on Amazon EKS.
+Following example will use `pharmer ` to create a Kubernetes cluster with 1 worker node on [Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html).
 
 ## Before you start
 

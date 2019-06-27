@@ -1,6 +1,6 @@
-# Running Kubernetes on [Azure](https://azure.microsoft.com/)
+# Running Kubernetes on Azure AKS
 
-Following example will use `pharmer ` to create a Kubernetes cluster with 1 worker node server and a master server (i,e, 2 servers in you cluster).
+Following example will use `pharmer ` to create a Kubernetes cluster with 1 worker node server and a master server (i,e, 2 servers in you cluster) in [Azure AJS] (https://azure.microsoft.com/).
 
 ## Before you start
 

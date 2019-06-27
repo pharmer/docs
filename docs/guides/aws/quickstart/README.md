@@ -1,6 +1,6 @@
-# Running Kubernetes on [AWS](https://aws.amazon.com)
+# Running Kubernetes on AWS
 
-Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster).
+Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster) on [AWS](https://aws.amazon.com)
 
 ## Before you start
 

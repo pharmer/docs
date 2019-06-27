@@ -1,6 +1,6 @@
-# Running Kubernetes on [Google Kubernetes Engine](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html)
+# Running Kubernetes on Google Kubernetes Engine
 
-Following example will use `pharmer ` to create a Kubernetes cluster with 1 worker node on Google Kubernetes Engine (GKE).
+Following example will use `pharmer ` to create a Kubernetes cluster with 1 worker node on on [Google Kubernetes Engine](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html).
 
 ### Before you start
 

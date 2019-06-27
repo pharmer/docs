@@ -1,6 +1,6 @@
-# Running Kubernetes on [Packet](https://app.packet.net)
+# Running Kubernetes on Packet
 
-Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster).
+Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster) on [Packet](https://app.packet.net).
 
 ### Before you start
 

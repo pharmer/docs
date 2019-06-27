@@ -1,6 +1,6 @@
-# Running Kubernetes on [DigitalOcean](https://cloud.digitalocean.com)
+# Running Kubernetes on Digitalocean
 
-Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster).
+Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster) on [DigitalOcean](https://cloud.digitalocean.com).
 
 ### Before you start
 

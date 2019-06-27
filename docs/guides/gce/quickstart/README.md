@@ -1,6 +1,6 @@
-# Running Kubernetes on [Google Cloud Service](https://console.cloud.google.com)
+# Running Kubernetes on Google Cloud Service
 
-Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster).
+Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster) on [Google Cloud Service](https://console.cloud.google.com).
 
 ### Before you start
 
