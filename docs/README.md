@@ -41,15 +41,15 @@ This project is spread over 5 repositories:
 - [pharmer/swanc](https://github.com/pharmer/swanc): StrongSwan based VPN Controller for Kubernetes
 
 ## User Guide
- - [Create & manage a Kubernetes cluster in AWS EC2](/docs/cloud/aws/README.md)
- - [Create & manage a Kubernetes cluster in Amazon EKS](/docs/cloud/eks/README.md)
- - [Create & manage a Kubernetes cluster in Google Cloud](/docs/cloud/gce/README.md)
- - [Create & manage a Kubernetes cluster in Google Kubernetes Engine](/docs/cloud/gke/README.md)
- - [Create & manage a Kubernetes cluster in Microsoft Azure](/docs/cloud/azure/README.md)
- - [Create & manage a Kubernetes cluster in Azure Kubernetes Servic](/docs/cloud/aks/README.md)
- - [Create & manage a Kubernetes cluster in DigitalOcean](/docs/cloud/digitalocean/README.md)
- - [Create & manage a Kubernetes cluster in Linode](/docs/cloud/linode/README.md)
- - [Create & manage a Kubernetes cluster in Packet](/docs/cloud/packet/README.md)
+ - [Create & manage a Kubernetes cluster in AWS EC2](/docs/guides/aws/README.md)
+ - [Create & manage a Kubernetes cluster in Amazon EKS](/docs/guides/eks/README.md)
+ - [Create & manage a Kubernetes cluster in Google Cloud](/docs/guides/gce/README.md)
+ - [Create & manage a Kubernetes cluster in Google Kubernetes Engine](/docs/guides/gke/README.md)
+ - [Create & manage a Kubernetes cluster in Microsoft Azure](/docs/guides/azure/README.md)
+ - [Create & manage a Kubernetes cluster in Azure Kubernetes Servic](/docs/guides/aks/README.md)
+ - [Create & manage a Kubernetes cluster in DigitalOcean](/docs/guides/digitalocean/README.md)
+ - [Create & manage a Kubernetes cluster in Linode](/docs/guides/linode/README.md)
+ - [Create & manage a Kubernetes cluster in Packet](/docs/guides/packet/README.md)
  <!-- - [Create & manage a Kubernetes cluster in Scaleway](/docs/cloud/scaleway/README.md)
  - [Create & manage a Kubernetes cluster in Vultr](/docs/cloud/vultr/README.md) -->
 
@@ -65,7 +65,7 @@ This project is spread over 5 repositories:
 | 0.1.0-rc.4      | &#10003;  | &#10003;   | &#10007;   | &#10007;   | &#10007;| &#10007;
 
 ## Contribution guidelines
-Want to help improve Pharmer? Please start [here](/CONTRIBUTING.md).
+Want to help improve Pharmer? Please start [here](/docs/CONTRIBUTING.md).
 
 ---
 
