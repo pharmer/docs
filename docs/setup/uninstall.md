@@ -2,8 +2,7 @@
 title: Uninstall
 menu:
   docs_0.3.2:
-    identifier: Uninstall
--kubedb
+    identifier: Uninstall-kubedb
     name: Uninstall
     parent: setup
     weight: 10
