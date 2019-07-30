@@ -7,9 +7,7 @@
 # pharmer
 <img src="https://raw.githubusercontent.com/cncf/artwork/master/projects/kubernetes/certified-kubernetes/1.13/color/certified-kubernetes-1.13-color.png" align="right" width="200px">Kubernetes Cluster Manager for [Kubeadm](https://github.com/kubernetes/kubeadm). Think `kops using kubeadm`!
 
-This project is spread over 5 repositories:
-
-- [pharmer/pre-k](https://github.com/pharmer/pre-k): Contains [a set of handy commands](https://github.com/pharmer/pre-k/blob/master/docs/reference/pre-k.md) that you run before `kubeadm init`.
+This project is spread over 3 repositories:
 
 - [pharmer/pharmer](https://github.com/pharmer/pharmer): A [Kops](https://github.com/kubernetes/kops) [like](https://github.com/pharmer/pharmer/blob/master/docs/reference/pharmer.md) cluster manager using `Kubeadm`. Supported cloud providers:
   - [Amazon Web Services](https://aws.amazon.com/)
@@ -25,6 +23,8 @@ This project is spread over 5 repositories:
   - [Softlayer](http://www.softlayer.com/)
   - [Vultr](https://www.vultr.com/) -->
 
+- [pharmer/pre-k](https://github.com/pharmer/pre-k): Contains [a set of handy commands](https://github.com/pharmer/pre-k/blob/master/docs/reference/pre-k.md) that you run before `kubeadm init`.
+
 - [pharmer/cloud-controller-manager](https://github.com/pharmer/cloud-controller-manager): Implements Cloud Controller manager for following cloud providers:
   - [Linode](https://www.linode.com/)
   - [Packet](https://www.packet.net/)
@@ -32,13 +32,6 @@ This project is spread over 5 repositories:
   <!-- - [Scaleway](https://www.scaleway.com/) -->
   <!-- - [Softlayer](http://www.softlayer.com/) -->
   <!-- - [Vultr](https://www.vultr.com/) -->
-
-- [pharmer/flexvolumes](https://github.com/pharmer/flexvolumes): Implements Flex Volume drivers for following cloud providers:
-  - [DigitalOcean](https://www.digitalocean.com/)
-  - [Linode](https://www.linode.com/)
-  - [Packet](https://www.packet.net/)
-
-- [pharmer/swanc](https://github.com/pharmer/swanc): StrongSwan based VPN Controller for Kubernetes
 
 ## User Guide
  - [Create & manage a Kubernetes cluster in AWS EC2](/docs/guides/aws/README.md)
