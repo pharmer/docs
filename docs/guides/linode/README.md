@@ -1,4 +1,4 @@
 # User Guides
 
-- [Quickstart](quickstart/README.md) shows how you can create, upgrade and delete a cluster in aks
-- [Credentials](credentials/README.md) shows how to create, edit and update credential for aks
+- [Quickstart](quickstart/README.md) shows how you can create, upgrade and delete a cluster in Linode.
+- [Credentials](credentials/README.md) shows how to create, edit and update credential for Linode.
