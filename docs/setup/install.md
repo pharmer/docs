@@ -1,12 +1,12 @@
 ---
-title: Install
+title: Install Kubeform
 menu:
-  docs_0.3.2:
-    identifier: install-kubedb
+  docs_0.3.1:
+    identifier: install-pharmer
     name: Install
     parent: setup
     weight: 10
-menu_name: docs_0.3.2
+menu_name: docs_0.3.1
 section_menu_id: setup
 ---
 
@@ -22,15 +22,18 @@ Download pre-built binaries:
 
 
 ### Linux amd64
-```console 
+
+```console
 $ curl -LO https://cdn.appscode.com/binaries/pharmer/0.3.2/pharmer-linux-amd64
 $ chmod +x pharmer-linux-amd64
 $ sudo mv pharmer-linux-amd64 /usr/local/bin/pharmer
 ```
+
 Feel free to leave off `sudo mv pharmer /usr/local/bin` if you would like to add pharmer to your path manually.
 
 ### Linux i368
-```console 
+
+```console
 $ curl -LO https://cdn.appscode.com/binaries/pharmer/0.3.2/pharmer-linux-386
 $ chmod +x pharmer-linux-386
 $ sudo mv pharmer-linux-386 /usr/local/bin/pharmer
@@ -38,7 +41,8 @@ $ sudo mv pharmer-linux-386 /usr/local/bin/pharmer
 Feel free to leave off `sudo mv pharmer /usr/local/bin` if you would like to add pharmer to your path manually.
 
 ### Linux arm64
-```console 
+
+```console
 $ curl -LO https://cdn.appscode.com/binaries/pharmer/0.3.2/pharmer-linux-arm64
 $ chmod +x pharmer-linux-arm64
 $ sudo mv pharmer-linux-arm64 /usr/local/bin/pharmer
@@ -46,9 +50,11 @@ $ sudo mv pharmer-linux-arm64 /usr/local/bin/pharmer
 Feel free to leave off `sudo mv pharmer /usr/local/bin` if you would like to add pharmer to your path manually.
 
 ### OSX
-```console 
+
+```console
 $ curl -LO https://cdn.appscode.com/binaries/pharmer/0.3.2/pharmer-darwin-amd64
 $ chmod +x pharmer-darwin-amd64
 $ sudo mv pharmer-darwin-amd64 /usr/local/bin/pharmer
 ```
+
 Feel free to leave off `sudo mv pharmer /usr/local/bin` if you would like to add pharmer to your path manually.

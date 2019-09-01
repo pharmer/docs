@@ -1,17 +1,16 @@
 ---
 title: Pharmer
 menu:
-  product_pharmer_0.3.1:
+  docs_0.3.1:
     identifier: pharmer
     name: Pharmer
     parent: reference
     weight: 0
 
-product_name: pharmer
-menu_name: product_pharmer_0.3.1
+menu_name: docs_0.3.1
 section_menu_id: reference
 aliases:
-  - /products/pharmer/0.3.1/reference/
+  - /docs/0.3.1/reference/
 
 ---
 ## pharmer

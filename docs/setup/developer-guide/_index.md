@@ -1,10 +1,10 @@
 ---
-title: Developer Guide | Pharmer
-description: Pharmer Developer Guide
+title: Developer Guide
 menu:
-  product_pharmer_0.3.1:
+  docs_0.3.1:
     identifier: developer-guide
     name: Developer Guide
-    weight: 40
-menu_name: product_pharmer_0.3.1
+    parent: setup
+    weight: 50
+menu_name: docs_0.3.1
 ---

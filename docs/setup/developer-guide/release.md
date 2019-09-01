@@ -1,15 +1,13 @@
 ---
-title: Release | Pharmer
-description: Pharmer Release
+title: Release
 menu:
-  product_pharmer_0.3.1:
-    identifier: release    
-    name: Release
+  docs_0.3.1:
+    identifier: developer-guide-release
+    name: Release Process
     parent: developer-guide
-    weight: 15
-product_name: pharmer
-menu_name: product_pharmer_0.3.1
-section_menu_id: developer-guide
+    weight: 20
+menu_name: docs_0.3.1
+section_menu_id: setup
 ---
 
 # Release Process
@@ -20,6 +18,7 @@ The following steps must be done from a Linux x64 bit machine.
 - Push changes to the `release-x` branch and apply new tag.
 - Push all the changes to remote repo.
 - Build and push pharmer docker image:
+
 ```console
 $ cd ~/go/src/github.com/pharmer/pharmer
 ./hack/release.sh

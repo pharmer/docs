@@ -1,10 +1,10 @@
 ---
-title: Cloud | Pharmer
+title: Guides | Pharmer
 menu:
-  product_pharmer_0.3.1:
-    identifier: cloud
-    name: Cloud
-    weight: 20
+  docs_0.3.1:
+    identifier: guides
+    name: Guides
+    weight: 40
     pre: dropdown
-menu_name: product_pharmer_0.3.1
+menu_name: docs_0.3.1
 ---

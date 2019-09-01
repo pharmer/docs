@@ -1,6 +1,18 @@
+---
+title: AKS Quickstart
+menu:
+  docs_0.3.1:
+    identifier: aks-readme-quickstart
+    name: Quickstart
+    parent: aks-quickstart-aks
+    weight: 10
+menu_name: docs_0.3.1
+section_menu_id: guides
+---
+
 # Running Kubernetes on Azure AKS
 
-Following example will use `pharmer ` to create a Kubernetes cluster with 1 worker node server and a master server (i,e, 2 servers in you cluster) in [Azure AJS] (https://azure.microsoft.com/).
+Following example will use `pharmer ` to create a Kubernetes cluster with 1 worker node server and a master server (i,e, 2 servers in you cluster) in [Azure AJS](https://azure.microsoft.com/).
 
 ## Before you start
 
@@ -14,6 +26,7 @@ To store your cluster  and credential resource, you can configure pharmer to use
 ## Credential Importing
 
 You can create a credential named `azur` by running
+
 ```console
 $ pharmer create credential azur
 ```
@@ -28,7 +41,7 @@ In first step `pharmer` create basic configuration file with user choice. Then i
 information to create cluster on specific provider.
 
 Here, we discuss how to use `pharmer` to create a Kubernetes cluster on `azure aks`
- 
+
 ### Create Cluster
 
 We want to create a cluster with following information:
@@ -41,9 +54,10 @@ We want to create a cluster with following information:
     - Credential name: [azur](#credential-importing)
 
 For location code and sku details click [hrere](https://github.com/pharmer/cloud/blob/master/data/json/apis/cloud.pharmer.io/v1/cloudproviders/azure.json)
- 
+
 Available options in `pharmer` to create a cluster are:
- ```console
+
+```console
 Create a Kubernetes cluster for a given cloud provider
 
 Usage:
@@ -87,9 +101,9 @@ So, we need to run following command to create cluster with our information.
 
 ```console
 $ pharmer create cluster aksx --v=4 --provider=aks --zone=eastus --nodes=Standard_D1_v2=1	--credential-uid=azur --kubernetes-version=1.14.1
-I0626 15:29:31.675278    8568 create.go:24] [create-cluster] "level"=0 "msg"="creating cluster" "cluster-name"="aksx" 
+I0626 15:29:31.675278    8568 create.go:24] [create-cluster] "level"=0 "msg"="creating cluster" "cluster-name"="aksx"
 I0626 15:29:31.675516    8568 create.go:46] [create-cluster] "level"=2 "msg"="cluster doesn't exists, ignoring error" "cluster-name"="aksx" "error"="cluster `aksx` does not exist. Reason: not found"
-I0626 15:29:32.724306    8568 create.go:75] [create-cluster] "level"=0 "msg"="successfully created cluster" "cluster-name"="aksx" 
+I0626 15:29:32.724306    8568 create.go:75] [create-cluster] "level"=0 "msg"="successfully created cluster" "cluster-name"="aksx"
 ```
 
 To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/networking.md)
@@ -121,13 +135,15 @@ $ tree ~/.pharmer/store.d/clusters/aksx
 ```
 Here,
 - `aksx/machineset/`: contains the node groups information. [Check below](#cluster-scaling) for node group operations.You can see the node group list using following command.
-   
+
 ```console
 $ pharmer get nodegroups -k aksx
 ```
+
 - `aksx/pki`: contains the cluster certificate information containing `ca` and `front-proxy-ca`.
 - `aksx/ssh`: has the ssh credentials on cluster's nodes. With this key you can `ssh` into any node on a cluster
 - `aksx.json`: contains the cluster resource information
+
 You can view your cluster configuration file by following command.
 
 ```yaml
@@ -179,6 +195,7 @@ Here,
 * `status.phase` may be `Pending`, `Ready`, `Deleting`, `Deleted`, `Upgrading` depending on current cluster status.
 
 You can modify this configuration by:
+
 ```console
 $ pharmer edit cluster aksx
 ```
@@ -188,13 +205,14 @@ If everything looks ok, we can now apply the resources. This actually creates re
 Up to now we've only been working locally.
 
 To apply run:
+
 ```console
 $ pharmer apply aksx
 ```
 
-Now, `pharmer` will apply that configuration, thus create a Kubernetes cluster. After completing task the configuration file of
- the cluster will be look like
- ```yaml
+Now, `pharmer` will apply that configuration, thus create a Kubernetes cluster. After completing task the configuration file of the cluster will be look like
+
+```yaml
  $ pharmer get cluster aksx -o yaml
 apiVersion: v1alpha1
 kind: Cluster
@@ -230,11 +248,12 @@ spec:
 status:
   cloud: {}
   phase: Ready
- ```
+```
 
 Here,`status.phase`: is ready. So, you can use your cluster from local machine.
 
 To get the `kubectl` configuration file(kubeconfig) on your local filesystem run the following command.
+
 ```console
 $ pharmer use cluster aksx
 ```
@@ -252,8 +271,9 @@ aks-sd1v2p-33941960-0   Ready     agent     35m       v1.10.3
 ## Cluster Scaling
 
 Scaling a cluster refers following meanings:-
- 1. Increment the number of nodes of a certain node group
- 2. Decrement the number of nodes of a certain node group
+
+1. Increment the number of nodes of a certain node group
+2. Decrement the number of nodes of a certain node group
 
 To see the current node groups list, you need to run following command:
 
@@ -312,6 +332,7 @@ on provider cluster.
 ```console
 $ pharmer apply aksx
 ```
+
 This command will take care of your actions that you applied on the node groups recently.
 
 ```console
@@ -327,6 +348,7 @@ To get a backup of your cluster run the following command:
 ```console
 $ pharmer backup cluster --cluster aksx --backup-dir=aksx-backup
 ```
+
 Here,
    `--backup-dir` is the flag for specifying your backup directory where phamer puts the backup file
 
@@ -335,7 +357,9 @@ After finishing task `pharmer` creates a `.tar.gz` file in your backup directory
 ### Cluster Upgrading
 
 To upgrade your cluster firstly you need to check if there any update available for your cluster and latest kubernetes version.
+
 To check run:
+
 ```console
 $ pharmer describe cluster aksx
 Name:		aksx
@@ -347,11 +371,14 @@ NodeGroup:
 ```
 
 Then, if you decided to upgrade you cluster run the command that are showing on describe command.
+
 ```console
 $ pharmer edit cluster aksx --kubernetes-version=1.10.4
 cluster "aksx" updated
 ```
+
 You can verify your changes by checking the yaml of the cluster.
+
 ```yaml
 $ pharmer get cluster aksx -o yaml
 apiVersion: v1alpha1
@@ -389,9 +416,11 @@ status:
   cloud: {}
   phase: Upgrading
 ```
+
 Here, `spec.kubernetesVersion` is changed to `1.10.4` from `1.10.3`
 
 If everything looks ok, then run:
+
 ```console
 $ pharmer apply aksx
 ```
@@ -399,11 +428,13 @@ $ pharmer apply aksx
 ## Cluster Deleting
 
 To delete your cluster run
+
 ```console
 $ pharmer delete cluster aksx
 ```
 
 Then, the yaml file looks like
+
 ```yaml
 $ pharmer get cluster aksx -o yaml
 apiVersion: v1alpha1
@@ -448,6 +479,7 @@ Here,
 - `metadata.deletionTimestamp`: is set when cluster deletion command was applied.
 
 Now, to apply delete on provider cluster run
+
 ```console
 $ pharmer apply aksx
 ```

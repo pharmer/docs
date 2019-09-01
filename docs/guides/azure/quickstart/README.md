@@ -1,3 +1,15 @@
+---
+title: Azure Quickstart
+menu:
+  docs_0.3.1:
+    identifier: azure-readme-quickstart
+    name: Quickstart
+    parent: azure-quickstart-azure
+    weight: 10
+menu_name: docs_0.3.1
+section_menu_id: guides
+---
+
 # Running Kubernetes on Azure
 
 Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster) on [Azure](https://azure.microsoft.com)
@@ -13,6 +25,7 @@ To store your cluster  and credential resource, you can configure pharmer to use
 ### Credential importing
 
 You can create a credential named `azure` by running
+
 ```console
 $ pharmer create credential azure
 ```
@@ -42,7 +55,8 @@ We want to create a cluster with following information:
 For location code and sku details click [hrere](https://github.com/pharmer/cloud/blob/master/data/json/apis/cloud.pharmer.io/v1/cloudproviders/azure.json)
 
 Available options in `pharmer` to create a cluster are:
- ```console
+
+```console
  $ pharmer create cluster -h
  Create a Kubernetes cluster for a given cloud provider
 
@@ -80,7 +94,7 @@ Global Flags:
       --stderrthreshold severity         logs at or above this threshold go to stderr
   -v, --v Level                          log level for V logs
       --vmodule moduleSpec               comma-separated list of pattern=N settings for file-filtered logging
- ```
+```
 
 So, we need to run following command to create cluster with our information.
 
@@ -137,7 +151,7 @@ Here,
 
 You can view your cluster configuration file by following command.
 
- 
+
 ```yaml
 $ pharmer get cluster az1 -o yaml
 apiVersion: cluster.pharmer.io/v1beta1
@@ -244,6 +258,7 @@ status:
 
 
 You can modify this configuration by:
+
 ```console
 $ pharmer edit cluster az1
 ```
@@ -255,13 +270,13 @@ Up to now we've only been working locally.
 
 To apply run:
 
- ```console
+```console
 $ pharmer apply az1
 ```
 
 Now, `pharmer` will apply that configuration, this create a Kubernetes cluster. After completing task the configuration file of the cluster will be look like
 
- 
+
 ```yaml
 $ pharmer get cluster az1 -o yaml
 kind: Cluster
@@ -278,7 +293,7 @@ spec:
     metadata:
       name: az1
       namespace: default
-      creationTimestamp: 
+      creationTimestamp:
     spec:
       clusterNetwork:
         services:
@@ -294,7 +309,7 @@ spec:
           apiVersion: azureprovider/v1alpha1
           metadata:
             name: az1
-            creationTimestamp: 
+            creationTimestamp:
           networkSpec:
             vnet:
               name: ''
@@ -369,7 +384,7 @@ spec:
               storageAccountType: ''
             osType: ''
         metadata:
-          creationTimestamp: 
+          creationTimestamp:
         network:
           apiServerIp:
             dnsName: az1-d30d08c.eastus2.cloudapp.azure.com
@@ -441,25 +456,23 @@ az1-master-2               Ready    master   17m     v1.13.5
 standard-b2ms-pool-fpvhk   Ready    node     7m23s   v1.13.5
 ```
 
-
-
-
 You can ssh to the nodes from bastion node.
 
 First, ssh to bastion node
+
 ```console
 $ cd ~/.pharmer/store.d/$USER/clusters/az1/ssh/
 $ ssh-add id_az1-sshkey
 Identity added: id_az1-sshkey (id_az1-sshkey)
 $ ssh -A capi@34.205.72.251 #bastion-ip
 ```
+
 Then you can ssh to any node in the cluster from bastion node using its private ip
 
 ```console
 capi@az1-bastion:~$ ssh 10.0.0.4
 capi@az1-master-0:~$
 ```
-
 
 ### Cluster Scaling
 
@@ -486,8 +499,6 @@ $ kubectl get machinesets
 NAME                AGE
 standard-b2ms-pool   27m
 ```
-
-
 
 #### Deploy new master machines
 You can create new master machine by the deploying the following yaml
@@ -526,7 +537,6 @@ spec:
     kubelet: v1.13.5
     controlPlane: v1.13.5
 ```
-
 
 
 #### Create new worker machines
@@ -596,13 +606,13 @@ spec:
         set: node
     spec:
       metadata:
-        creationTimestamp: 
+        creationTimestamp:
       providerSpec:
         value:
           kind: AzureMachineProviderSpec
           apiVersion: azureprovider/v1alpha1
           metadata:
-            creationTimestamp: 
+            creationTimestamp:
           roles:
           - Node
           location: eastus2
@@ -628,7 +638,7 @@ spec:
 
 You can create new machine-deployments by deploying the following yaml
 
- 
+
 ```yaml
 kind: MachineDeployment
 apiVersion: cluster.k8s.io/v1alpha1
@@ -651,13 +661,13 @@ spec:
         set: node
     spec:
       metadata:
-        creationTimestamp: 
+        creationTimestamp:
       providerSpec:
         value:
           kind: AzureMachineProviderSpec
           apiVersion: azureprovider/v1alpha1
           metadata:
-            creationTimestamp: 
+            creationTimestamp:
           roles:
           - Node
           location: eastus2
@@ -687,6 +697,7 @@ You can also update number of nodes of an existing machine-set and machine-deplo
 $ kubectl edit <machineset-name>
 $ kubectl edit <machinedeployment-name>
 ```
+
 and update the `spec.replicas` field
 
 #### Delete nodes
@@ -696,6 +707,7 @@ You can delete machines using
 ```console
 $ kubectl delete machine <machine-name>
 ```
+
 Warning: if the machine is controlled by a machineset, a new machine will be created. You should update/delete machineset in that case
 
 You can delete machine-set and machine-deployments using

@@ -1,10 +1,11 @@
 ---
-title: GCE
+title: Guides | GCE
 menu:
-  product_pharmer_0.3.2:
-    identifier: gce
+  docs_0.3.1:
+    identifier: gce-guides
     name: GCE
-    parent: cloud
+    parent: guides
     weight: 10
-menu_name: product_pharmer_0.3.2
+menu_name: docs_0.3.1
 ---
+

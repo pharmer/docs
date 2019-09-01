@@ -1,14 +1,13 @@
 ---
-title: Data Store
+title: DataStore | Pharmer
 menu:
-  product_pharmer_0.3.1:
-    identifier: datastore
-    name: Data Store
-    parent: cli
+  docs_0.3.1:
+    identifier: datastore-datastore-concepts
+    name: DataStore
+    parent: datastore-concepts
     weight: 20
-product_name: pharmer
-menu_name: product_pharmer_0.3.1
-section_menu_id: cli
+menu_name: docs_0.3.1
+section_menu_id: concepts
 ---
 
 # Pharmer Datastore

@@ -1,14 +1,13 @@
 ---
-title: Postgres Database XORM
+title: Database | Pharmer DataStore
 menu:
-  product_pharmer_0.3.1:
-    identifier: xorm
+  docs_0.3.1:
+    identifier: xorm-datastore-concepts
     name: XORM
-    parent: cli
+    parent: datastore-concepts
     weight: 15
-product_name: pharmer
-menu_name: product_pharmer_0.3.1
-section_menu_id: cli
+menu_name: docs_0.3.1
+section_menu_id: concepts
 ---
 
 ## Postgres Database (xorm)

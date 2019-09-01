@@ -1,10 +1,11 @@
 ---
-title: Packet
+title: Guides | Packet
 menu:
-  product_pharmer_0.3.2:
-    identifier: packet
+  docs_0.3.1:
+    identifier: packet-guides
     name: Packet
-    parent: cloud
-    weight: 45
-menu_name: product_pharmer_0.3.2
+    parent: guides
+    weight: 10
+menu_name: docs_0.3.1
 ---
+

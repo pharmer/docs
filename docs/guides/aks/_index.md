@@ -1,10 +1,11 @@
 ---
-title: Azure AKS
+title: Guides | AKS
 menu:
-  product_pharmer_0.3.2:
-    identifier: aks
-    name: Azure AKS
-    parent: cloud
-    weight: 40
-menu_name: product_pharmer_0.3.2
+  docs_0.3.1:
+    identifier: aks-guides
+    name: AKS
+    parent: guides
+    weight: 10
+menu_name: docs_0.3.1
 ---
+

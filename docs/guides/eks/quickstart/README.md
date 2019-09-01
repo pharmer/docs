@@ -1,3 +1,15 @@
+---
+title: EKS Quickstart
+menu:
+  docs_0.3.1:
+    identifier: eks-readme-quickstart
+    name: Quickstart
+    parent: eks-quickstart-eks
+    weight: 10
+menu_name: docs_0.3.1
+section_menu_id: guides
+---
+
 # Running Kubernetes Amazon EKS
 
 Following example will use `pharmer ` to create a Kubernetes cluster with 1 worker node on [Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html).
@@ -13,6 +25,7 @@ To store your cluster  and credential resource, you can configure pharmer to use
 ### Credential importing
 
 You can create a credential named `aws` by running
+
 ```console
 $ pharmer create credential aws
 ```
@@ -37,8 +50,10 @@ Here, we discuss how to use `pharmer` to create a Kubernetes cluster on `Amazon 
     - Credential name: [aws](/docs/cloud/aws/README.md#credential-importing)
 
 For location code and sku details click [hrere](https://github.com/pharmer/cloud/blob/master/data/json/apis/cloud.pharmer.io/v1/cloudproviders/eks.json)
- Available options in `pharmer` to create a cluster are:
- ```console
+
+Available options in `pharmer` to create a cluster are:
+
+```console
  $ pharmer create cluster -h
 Create a Kubernetes cluster for a given cloud provider
 
@@ -115,13 +130,15 @@ The directory structure of the storage provider will be look like:
 Here,
 
    - `/v1/nodegroups/`: contains the node groups information. [Check below](#cluster-scaling) for node group operations.You can see the node group list using following command.
-   ```console
-$ pharmer get nodegroups -k eksx
-```
+  ```console
+  $ pharmer get nodegroups -k eksx
+  ```
    - `v1/pki`: contains the cluster certificate information containing `ca` and `front-proxy-ca`.
    - `v1/ssh`: has the ssh credentials on cluster's nodes. With this key you can `ssh` into any node on a cluster
    - `v1.json`: contains the cluster resource information
+
 You can view your cluster configuration file by following command.
+
 ```yaml
 $ pharmer get cluster eksx -o yaml
 apiVersion: v1alpha1
@@ -163,6 +180,7 @@ Here,
 * `status.phase` may be `Pending`, `Ready`, `Deleting`, `Deleted`, `Upgrading` depending on current cluster status.
 
 You can modify this configuration by:
+
 ```console
 $ pharmer edit cluster eksx
 ```
@@ -170,8 +188,9 @@ $ pharmer edit cluster eksx
 * **Applying:** If everything looks ok, we can now apply the resources. This actually creates resources on `Amazon EKS`.
  Up to now we've only been working locally.
 
- To apply run:
- ```console
+To apply run:
+
+```console
 $ pharmer apply eksx
 ```
 
@@ -217,14 +236,14 @@ Here,
   `status.phase`: is ready. So, you can use your cluster from local machine.
 
 To get the `kubectl` configuration file(kubeconfig) on your local filesystem run the following command.
+
 ```console
 $ pharmer use cluster eksx
 ```
+
 If you don't have `kubectl` installed click [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-
 Now you can run `kubectl get nodes` and verify that your kubernetes 1.10 is running.
-
 
 ```console
 $ kubectl get nodes
@@ -242,6 +261,7 @@ Scaling a cluster refers following meanings:-
  4. Drop existing node group
 
 To see the current node groups list, you need to run following command:
+
 ```console
 $ pharmer get nodegroup -k eksx
 NAME             Cluster   Node      SKU
@@ -307,6 +327,7 @@ t2.medium-pool   eksx      1         t2.medium
 ```
 
 You can see the yaml of newly created node group, you need to run
+
 ```yaml
 $ pharmer get nodegroup t2.large-pool -o yaml -k eksx
 apiVersion: v1alpha1
@@ -329,6 +350,7 @@ spec:
 status:
   nodes: 0
 ```
+
 * **Delete existing NG**
 
 If you want delete existing node group following command will help.
@@ -399,9 +421,11 @@ After finishing task `pharmer` creates a `.tar.gz` file in your backup directory
 ## Cluster Deleting
 
 To delete your cluster run
+
 ```console
 $ pharmer delete cluster eksx
 ```
+
 Then, the yaml file looks like
 
 ```yaml
@@ -445,6 +469,7 @@ Here,
 - `metadata.deletionTimestamp`: is set when cluster deletion command was applied.
 
 Now, to apply delete on provider cluster run
+
 ```console
 $ pharmer apply eksx
 ```

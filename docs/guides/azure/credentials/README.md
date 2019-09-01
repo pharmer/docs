@@ -1,5 +1,16 @@
-# Azure Credential
+---
+title: Azure Credentials
+menu:
+  docs_0.3.1:
+    identifier: azure-readme-credentials
+    name: Credentials
+    parent: azure-credentials-azure
+    weight: 10
+menu_name: docs_0.3.1
+section_menu_id: guides
+---
 
+# Azure Credential
 
 ## Before You Begin
 You need to have tenant ID, subscription ID, client ID and client secret values
@@ -34,13 +45,17 @@ You can also find Subscription id from `Portal -> Subscription -> Subscription I
 
 
 ## Create credential
+
 From command line, run
+
 ```console
 $ pharmer create credential <credential-name>
 ```
+
 select azure as cloud provider. You will be prompted to enter `Tenant ID`, `Subscription ID`, `Client ID` and `Client Secret`
 
 You can also create credential from environment variables
+
 ```console
 $ export AZURE_SUBSCRIPTION_ID=<subscription id>
 $ export AZURE_TENANT_ID=<tenant id>
@@ -50,6 +65,7 @@ $ pharmer create credential <credential-name> --provider azure --from-env
 ```
 
 You can also create credentials from file. Create a file in this format
+
 ```json
 {
   "tenantID": "your azure client id",
@@ -60,17 +76,21 @@ You can also create credentials from file. Create a file in this format
 ```
 
 now run
+
 ```console
 $ pharmer create credential <credential-name> --provider azure --from-file <path-to-file>
 ```
 
 ## View Credential
+
 You can view list of credentials you created by running
+
 ```console
 $ pharmer get credentials
 ```
 
 To view the credential you created, run
+
 ```yaml
 $ pharmer get credential <credential-name> -o yaml
 apiVersion: cloud.pharmer.io/v1
@@ -95,13 +115,17 @@ Here,
 
 
 ## Edit credential
+
 You can edit your created credential by running
+
 ```console
 $ phrmer edit credential <credential-name>
 ```
 
 ## Delete credential
+
 You can delete your credential by running
+
 ```console
 $ pharmer delete credential <credential-name>
 ```

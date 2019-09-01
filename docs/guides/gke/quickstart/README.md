@@ -1,3 +1,15 @@
+---
+title: GKE Quickstart
+menu:
+  docs_0.3.1:
+    identifier: gke-readme-quickstart
+    name: Quickstart
+    parent: gke-quickstart-gke
+    weight: 10
+menu_name: docs_0.3.1
+section_menu_id: guides
+---
+
 # Running Kubernetes on Google Kubernetes Engine
 
 Following example will use `pharmer ` to create a Kubernetes cluster with 1 worker node on on [Google Kubernetes Engine](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html).
@@ -33,7 +45,8 @@ Here, we discuss how to use `pharmer` to create a Kubernetes cluster on `gce`
 For location code and sku details click [hrere](https://github.com/pharmer/cloud/blob/master/data/json/apis/cloud.pharmer.io/v1/cloudproviders/gke.json)
 
 Available options in `pharmer` to create a cluster are:
- ```console
+
+```console
  $ pharmer create cluster -h
 Create a Kubernetes cluster for a given cloud provider
 
@@ -109,14 +122,15 @@ The directory structure of the storage provider will be look like:
 Here,
 
    - `/v1/nodegroups/`: contains the node groups information. [Check below](#cluster-scaling) for node group operations.You can see the node group list using following command.
-   ```console
-$ pharmer get nodegroups -k g1
-```
+  ```console
+  $ pharmer get nodegroups -k g1
+  ```
    - `v1/pki`: contains the cluster certificate information containing `ca` and `front-proxy-ca`.
    - `v1/ssh`: has the ssh credentials on cluster's nodes. With this key you can `ssh` into any node on a cluster
    - `v1.json`: contains the cluster resource information
 
 You can view your cluster configuration file by following command.
+
 ```yaml
 $ pharmer get cluster g1 -o yaml
 apiVersion: v1alpha1
@@ -166,6 +180,7 @@ Here,
 * `status.phase` may be `Pending`, `Ready`, `Deleting`, `Deleted`, `Upgrading` depending on current cluster status.
 
 You can modify this configuration by:
+
 ```console
 $ pharmer edit cluster gkex
 ```
@@ -173,13 +188,14 @@ $ pharmer edit cluster gkex
 * **Applying:** If everything looks ok, we can now apply the resources. This actually creates resources on `GKE`.
  Up to now we've only been working locally.
 
- To apply run:
- ```console
+To apply run:
+
+```console
 $ pharmer apply gkex
 ```
 
- Now, `pharmer` will apply that configuration, thus create a Kubernetes cluster. After completing task the configuration file of
- the cluster will be look like
+Now, `pharmer` will apply that configuration, thus create a Kubernetes cluster. After completing task the configuration file of the cluster will be look like
+
 ```yaml
  $ pharmer get cluster g1 -o yaml
 apiVersion: v1alpha1
@@ -226,12 +242,15 @@ Here,
 
 
 To get the `kubectl` configuration file(kubeconfig) on your local filesystem run the following command.
+
 ```console
 $ pharmer use cluster gkex
 ```
+
 If you don't have `kubectl` installed click [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 Now you can run `kubectl get nodes` and verify that your kubernetes 1.9.0 is running.
+
 ```console
 $ kubectl get nodes
 NAME                                        STATUS    ROLES     AGE       VERSION
@@ -248,6 +267,7 @@ Scaling a cluster refers following meanings:-
  4. Drop existing node group
 
 To see the current node groups list, you need to run following command:
+
 ```console
 $ pharmer get nodegroup -k gkex
 NAME                 Cluster   Node      SKU
@@ -306,6 +326,7 @@ To update number of nodes for this nodegroup modify the `node` number under `spe
 - Regular NG :
 
 To add a new regular node group for an existing cluster you need to run
+
 ```console
 $ pharmer create ng --nodes=n1-standard-1=1 -k gkex
 
@@ -341,9 +362,11 @@ status:
 
 
 ```
+
 * **Delete existing NG**
 
 If you want delete existing node group following command will help.
+
 ```yaml
 $ pharmer delete ng n1-standard-2-pool -k gkex
 
@@ -411,6 +434,7 @@ After finishing task `pharmer` creates a `.tar.gz` file in your backup directory
 ## Cluster Deleting
 
 To delete your cluster run
+
 ```console
 $ pharmer delete cluster gkex
 ```
@@ -462,12 +486,9 @@ Here,
 - `metadata.deletionTimestamp`: is set when cluster deletion command was applied.
 
 Now, to apply delete on provider cluster run
+
 ```console
 $ pharmer apply gkex
 ```
 
 **Congratulations !!!** , you're an official `pharmer` user now.
-
-
-
-

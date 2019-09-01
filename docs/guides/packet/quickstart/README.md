@@ -1,3 +1,15 @@
+---
+title: Linode Quickstart
+menu:
+  docs_0.3.1:
+    identifier: packet-readme-quickstart
+    name: Quickstart
+    parent: packet-quickstart-packet
+    weight: 10
+menu_name: docs_0.3.1
+section_menu_id: guides
+---
+
 # Running Kubernetes on Packet
 
 Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster) on [Packet](https://app.packet.net).
@@ -13,6 +25,7 @@ To store your cluster  and credential resource, you can configure pharmer to use
 ### Credential importing
 
 You can create a credential named `packet` by running
+
 ```console
 $ pharmer create credential packet
 ```
@@ -41,7 +54,8 @@ We want to create a cluster with following information:
 For location code and sku details click [hrere](https://github.com/pharmer/cloud/blob/master/data/json/apis/cloud.pharmer.io/v1/cloudproviders/packet.json)
 
 Available options in `pharmer` to create a cluster are:
- ```console
+
+```console
  $ pharmer create cluster -h
  Create a Kubernetes cluster for a given cloud provider
 
@@ -151,7 +165,7 @@ spec:
     metadata:
       name: p1
       namespace: default
-      creationTimestamp: 
+      creationTimestamp:
     spec:
       clusterNetwork:
         services:
@@ -166,7 +180,7 @@ spec:
           kind: PacketClusterProviderConfig
           apiVersion: Packetproviderconfig/v1alpha1
           metadata:
-            creationTimestamp: 
+            creationTimestamp:
     status: {}
   config:
     masterCount: 1
@@ -195,6 +209,7 @@ status:
 
 
 You can modify this configuration by:
+
 ```console
 $ pharmer edit cluster p1
 ```
@@ -206,7 +221,7 @@ Up to now we've only been working locally.
 
 To apply run:
 
- ```console
+```console
 $ pharmer apply p1
 ```
 
@@ -229,7 +244,7 @@ spec:
     metadata:
       name: p1
       namespace: default
-      creationTimestamp: 
+      creationTimestamp:
     spec:
       clusterNetwork:
         services:
@@ -244,7 +259,7 @@ spec:
           kind: PacketClusterProviderConfig
           apiVersion: Packetproviderconfig/v1alpha1
           metadata:
-            creationTimestamp: 
+            creationTimestamp:
     status:
       apiEndpoints:
       - host: 147.75.192.173
@@ -253,7 +268,7 @@ spec:
         apiVersion: Packetproviderconfig/v1alpha1
         kind: PacketClusterProviderConfig
         metadata:
-          creationTimestamp: 
+          creationTimestamp:
   config:
     masterCount: 1
     cloud:
@@ -301,9 +316,6 @@ $ kubectl get nodes
 p1-master-0        Ready    master   29m   v1.13.5
 baremetal-0-pool   Ready    node     13m   v1.13.5
 ```
-
-
-
 
 
 ### Cluster Scaling
@@ -438,6 +450,7 @@ You can also update number of nodes of an existing machine-set and machine-deplo
 $ kubectl edit <machineset-name>
 $ kubectl edit <machinedeployment-name>
 ```
+
 and update the `spec.replicas` field
 
 #### Delete nodes
@@ -447,6 +460,7 @@ You can delete machines using
 ```console
 $ kubectl delete machine <machine-name>
 ```
+
 Warning: if the machine is controlled by a machineset, a new machine will be created. You should update/delete machineset in that case
 
 You can delete machine-set and machine-deployments using
