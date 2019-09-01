@@ -15,5 +15,5 @@ aliases:
 
 # User Guides
 
-- [Quickstart](quickstart/README.md) shows how you can create, upgrade and delete a cluster in Packet.
-- [Credentials](credentials/README.md) shows how to create, edit and update credential for Packet.
+- [Quickstart](/docs/guides/packet/quickstart/) shows how you can create, upgrade and delete a cluster in Packet.
+- [Credentials](/docs/guides/packet/credentials/) shows how to create, edit and update credential for Packet.

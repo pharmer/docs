@@ -8,6 +8,9 @@ menu:
     weight: 10
 menu_name: docs_0.3.1
 section_menu_id: guides
+url: /docs/0.3.1/guides/packet/credentials/
+aliases:
+  - /docs/0.3.1/guides/packet/credentials/README/
 ---
 
 # Packet Credential

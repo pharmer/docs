@@ -15,5 +15,5 @@ aliases:
 
 # User Guides
 
-- [Quickstart](quickstart/README.md) shows how you can create, upgrade and delete a cluster in Linode.
-- [Credentials](credentials/README.md) shows how to create, edit and update credential for Linode.
+- [Quickstart](/docs/guides/linode/quickstart/) shows how you can create, upgrade and delete a cluster in Linode.
+- [Credentials](/docs/guides/linode/credentials/) shows how to create, edit and update credential for Linode.

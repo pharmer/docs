@@ -15,5 +15,5 @@ aliases:
 
 # User Guides
 
-- [Quickstart](quickstart/README.md) shows how you can create, upgrade and delete a cluster in Azure.
-- [Credentials](credentials/README.md) shows how to create, edit and update credential for Azure.
+- [Quickstart](/docs/guides/azure/quickstart/) shows how you can create, upgrade and delete a cluster in Azure.
+- [Credentials](/docs/guides/azure/credentials/) shows how to create, edit and update credential for Azure.

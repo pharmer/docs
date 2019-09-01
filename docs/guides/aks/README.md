@@ -15,5 +15,5 @@ aliases:
 
 # User Guides
 
-- [Quickstart](quickstart/README.md) shows how you can create, upgrade and delete a cluster in AKS.
-- [Credentials](credentials/README.md) shows how to create, edit and update credential for AKS.
+- [Quickstart](/docs/guides/aks/quickstart/) shows how you can create, upgrade and delete a cluster in AKS.
+- [Credentials](/docs/guides/aks/credentials/) shows how to create, edit and update credential for AKS.

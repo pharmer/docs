@@ -15,6 +15,6 @@ aliases:
 
 # Concepts
 
-- [Credential](credential/credential.md) shows information about credential
-- [Datastore](datastore/datastore.md) shows information about pharmer data storing
-- [Networking](networking/networking.md) shows information about networking
+- [Credential](/docs/concepts/credential/credential.md) shows information about credential
+- [Datastore](/docs/concepts/datastore/datastore.md) shows information about pharmer data storing
+- [Networking](/docs/concepts/networking/networking.md) shows information about networking

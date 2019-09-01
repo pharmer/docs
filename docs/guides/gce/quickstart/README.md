@@ -8,6 +8,9 @@ menu:
     weight: 10
 menu_name: docs_0.3.1
 section_menu_id: guides
+url: /docs/0.3.1/guides/gce/quickstart/
+aliases:
+  - /docs/0.3.1/guides/gce/quickstart/README/
 ---
 
 # Running Kubernetes on Google Cloud Service
@@ -24,7 +27,7 @@ To store your cluster  and credential resource, you can configure pharmer to use
 
 ### Credential importing
 
-Follow this guide for creating credential [here](/docs/guides/gce/credentials/README.md)
+Follow this guide for creating credential [here](/docs/guides/gce/credentials/)
 
 ### Cluster provisioning
 
@@ -101,7 +104,7 @@ $ pharmer create cluster gce-1 \
     --kubernetes-version v1.13.5
 ```
 
-To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/networking.md)
+To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/concepts/networking/networking.md)
 
 The directory structure of the storage provider will be look like:
 

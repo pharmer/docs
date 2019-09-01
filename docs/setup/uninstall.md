@@ -10,7 +10,7 @@ menu_name: docs_0.3.1
 section_menu_id: setup
 ---
 
-> New to Pharmer? Please start [here](/docs/concepts/README.md).
+> New to Pharmer? Please start [here](/docs/concepts/).
 
 # Uninstallation Guide
 
