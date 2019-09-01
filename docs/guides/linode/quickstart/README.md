@@ -8,6 +8,9 @@ menu:
     weight: 10
 menu_name: docs_0.3.1
 section_menu_id: guides
+url: /docs/0.3.1/guides/linode/quickstart/
+aliases:
+  - /docs/0.3.1/guides/linode/quickstart/README/
 ---
 
 # Running Kubernetes Linode
@@ -30,7 +33,7 @@ You can create a credential named `linode` by running
 $ pharmer create credential linode
 ```
 
-Follow this guide for more information [here](/docs/guides/linode/credentials/README.md)
+Follow this guide for more information [here](/docs/guides/linode/credentials/)
 
 
 ### Cluster provisioning
@@ -108,7 +111,7 @@ $ pharmer create cluster linode-1 \
     --kubernetes-version v1.13.5
 ```
 
-To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/networking.md)
+To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/concepts/networking/networking.md)
 
 The directory structure of the storage provider will be look like:
 

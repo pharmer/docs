@@ -8,6 +8,9 @@ menu:
     weight: 10
 menu_name: docs_0.3.1
 section_menu_id: guides
+url: /docs/0.3.1/guides/aks/quickstart/
+aliases:
+  - /docs/0.3.1/guides/aks/quickstart/README/
 ---
 
 # Running Kubernetes on Azure AKS
@@ -31,7 +34,7 @@ You can create a credential named `azur` by running
 $ pharmer create credential azur
 ```
 
-Follow this guide for more information [here](/docs/guides/aks/credentials/README.md)
+Follow this guide for more information [here](/docs/guides/aks/credentials/)
 
 
 ## Cluster provisioning
@@ -106,7 +109,7 @@ I0626 15:29:31.675516    8568 create.go:46] [create-cluster] "level"=2 "msg"="cl
 I0626 15:29:32.724306    8568 create.go:75] [create-cluster] "level"=0 "msg"="successfully created cluster" "cluster-name"="aksx"
 ```
 
-To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/networking.md)
+To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/concepts/networking/networking.md)
 
 The directory structure of the storage provider will be look like:
 

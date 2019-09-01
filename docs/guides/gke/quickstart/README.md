@@ -8,6 +8,9 @@ menu:
     weight: 10
 menu_name: docs_0.3.1
 section_menu_id: guides
+url: /docs/0.3.1/guides/gke/quickstart/
+aliases:
+  - /docs/0.3.1/guides/gke/quickstart/README/
 ---
 
 # Running Kubernetes on Google Kubernetes Engine
@@ -24,7 +27,7 @@ To store your cluster  and credential resource, you can configure pharmer to use
 
 ### Credential importing
 
-Follow this guide for creating credential [here](/docs/guides/gke/credentials/README.md)
+Follow this guide for creating credential [here](/docs/guides/gke/credentials/)
 
 ### Cluster provisioning
 
@@ -92,7 +95,7 @@ $ pharmer create cluster gkex \
 	--kubernetes-version=1.10.4-gke.2
 ```
 
-To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/networking.md)
+To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/concepts/networking/networking.md)
 
 The directory structure of the storage provider will be look like:
 
@@ -173,7 +176,7 @@ Here,
 * `spec.cloud` specifies the cloud provider information.
 * `spc.cloud.sshKeyName` shows which ssh key added to cluster instance.
 * `spec.networking` specifies the network information of the cluster
-    * `networkProvider`: by default it is `CALICO`. To modify it click [here](/docs/networking.md).
+    * `networkProvider`: by default it is `CALICO`. To modify it click [here](/docs/concepts/networking/networking.md).
     * `podSubnet`: in order for network policy to work correctly this field is needed. For flannel it will be `10.244.0.0/16`
 * `spec.kubernetesVersion` is the cluster server version. It can be modified.
 * `spec.credentialName` is the credential name which is provider during cluster creation command.

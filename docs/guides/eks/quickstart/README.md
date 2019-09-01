@@ -8,6 +8,9 @@ menu:
     weight: 10
 menu_name: docs_0.3.1
 section_menu_id: guides
+url: /docs/0.3.1/guides/eks/quickstart/
+aliases:
+  - /docs/0.3.1/guides/eks/quickstart/README/
 ---
 
 # Running Kubernetes Amazon EKS
@@ -30,7 +33,7 @@ You can create a credential named `aws` by running
 $ pharmer create credential aws
 ```
 
-Follow this guide for more information [here](/docs/guides/eks/credentials/README.md)
+Follow this guide for more information [here](/docs/guides/eks/credentials/)
 
 
 ### Cluster provisioning
@@ -100,7 +103,7 @@ $ pharmer create cluster eksx \
 	--kubernetes-version=v1.10
 ```
 
-To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/networking.md)
+To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/concepts/networking/networking.md)
 
 The directory structure of the storage provider will be look like:
 

@@ -20,7 +20,7 @@ aliases:
 
 This project is spread over 3 repositories:
 
-- [pharmer/pharmer](https://github.com/pharmer/pharmer): A [Kops](https://github.com/kubernetes/kops) [like](https://github.com/pharmer/pharmer/blob/master/docs/reference/pharmer.md) cluster manager using `Kubeadm`. Supported cloud providers:
+- [pharmer/pharmer](https://github.com/pharmer/pharmer): A [Kops](https://github.com/kubernetes/kops) like cluster manager using `Kubeadm`. Supported cloud providers:
   - [Amazon Web Services](https://aws.amazon.com/)
   - [Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html)
   - [DigitalOcean](https://www.digitalocean.com/)
@@ -39,15 +39,15 @@ This project is spread over 3 repositories:
   - [Digitalocean](https://digitalocean.com)
 
 ## User Guide
- - [Create & manage a Kubernetes cluster in AWS EC2](/docs/guides/aws/README.md)
- - [Create & manage a Kubernetes cluster in Amazon EKS](/docs/guides/eks/README.md)
- - [Create & manage a Kubernetes cluster in Google Cloud](/docs/guides/gce/README.md)
- - [Create & manage a Kubernetes cluster in Google Kubernetes Engine](/docs/guides/gke/README.md)
- - [Create & manage a Kubernetes cluster in Microsoft Azure](/docs/guides/azure/README.md)
- - [Create & manage a Kubernetes cluster in Azure Kubernetes Servic](/docs/guides/aks/README.md)
- - [Create & manage a Kubernetes cluster in DigitalOcean](/docs/guides/digitalocean/README.md)
- - [Create & manage a Kubernetes cluster in Linode](/docs/guides/linode/README.md)
- - [Create & manage a Kubernetes cluster in Packet](/docs/guides/packet/README.md)
+ - [Create & manage a Kubernetes cluster in AWS EC2](/docs/guides/aws/)
+ - [Create & manage a Kubernetes cluster in Amazon EKS](/docs/guides/eks/)
+ - [Create & manage a Kubernetes cluster in Google Cloud](/docs/guides/gce/)
+ - [Create & manage a Kubernetes cluster in Google Kubernetes Engine](/docs/guides/gke/)
+ - [Create & manage a Kubernetes cluster in Microsoft Azure](/docs/guides/azure/)
+ - [Create & manage a Kubernetes cluster in Azure Kubernetes Servic](/docs/guides/aks/)
+ - [Create & manage a Kubernetes cluster in DigitalOcean](/docs/guides/digitalocean/)
+ - [Create & manage a Kubernetes cluster in Linode](/docs/guides/linode/)
+ - [Create & manage a Kubernetes cluster in Packet](/docs/guides/packet/)
 
 ## Supported Versions Matrix
 
@@ -74,4 +74,4 @@ We use Slack for public discussions. To chit chat with us or the rest of the com
 
 To receive product announcements, please join our [mailing list](https://groups.google.com/forum/#!forum/pharmer) or follow us on [Twitter](https://twitter.com/AppsCodeHQ). Our mailing list is also used to share design docs shared via Google docs.
 
-If you have found a bug with Pharmer or want to request for new features, please [file an issue](https://github.com/pharmer/pharmer/issues/new).
+If you have found a bug with Pharmer or want to request for new features, please [file an issue](https://github.com/pharmer/project/issues/new).

@@ -8,6 +8,9 @@ menu:
     weight: 10
 menu_name: docs_0.3.1
 section_menu_id: guides
+url: /docs/0.3.1/guides/packet/quickstart/
+aliases:
+  - /docs/0.3.1/guides/packet/quickstart/README/
 ---
 
 # Running Kubernetes on Packet
@@ -30,7 +33,7 @@ You can create a credential named `packet` by running
 $ pharmer create credential packet
 ```
 
-Follow this guide for more information [here](/docs/guides/packet/credentials/README.md)
+Follow this guide for more information [here](/docs/guides/packet/credentials/)
 
 ### Cluster provisioning
 
@@ -107,7 +110,7 @@ $ pharmer create cluster packet-1 \
     --kubernetes-version v1.13.5
 ```
 
-To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/networking.md)
+To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/concepts/networking/networking.md)
 
 The directory structure of the storage provider will be look like:
 
