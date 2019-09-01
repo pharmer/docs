@@ -30,9 +30,6 @@ This project is spread over 3 repositories:
   - [Microsoft Azure](https://azure.microsoft.com/en-us/)
   - [Azure Kubernetes Servic AKS](https://docs.microsoft.com/en-us/azure/aks/)
   - [Packet](https://www.packet.net/)
-  <!-- - [Scaleway](https://www.scaleway.com/)
-  - [Softlayer](http://www.softlayer.com/)
-  - [Vultr](https://www.vultr.com/) -->
 
 - [pharmer/pre-k](https://github.com/pharmer/pre-k): Contains [a set of handy commands](https://github.com/pharmer/pre-k/blob/master/docs/reference/pre-k.md) that you run before `kubeadm init`.
 
@@ -40,9 +37,6 @@ This project is spread over 3 repositories:
   - [Linode](https://www.linode.com/)
   - [Packet](https://www.packet.net/)
   - [Digitalocean](https://digitalocean.com)
-  <!-- - [Scaleway](https://www.scaleway.com/) -->
-  <!-- - [Softlayer](http://www.softlayer.com/) -->
-  <!-- - [Vultr](https://www.vultr.com/) -->
 
 ## User Guide
  - [Create & manage a Kubernetes cluster in AWS EC2](/docs/guides/aws/README.md)
@@ -54,8 +48,6 @@ This project is spread over 3 repositories:
  - [Create & manage a Kubernetes cluster in DigitalOcean](/docs/guides/digitalocean/README.md)
  - [Create & manage a Kubernetes cluster in Linode](/docs/guides/linode/README.md)
  - [Create & manage a Kubernetes cluster in Packet](/docs/guides/packet/README.md)
- <!-- - [Create & manage a Kubernetes cluster in Scaleway](/docs/cloud/scaleway/README.md)
- - [Create & manage a Kubernetes cluster in Vultr](/docs/cloud/vultr/README.md) -->
 
 ## Supported Versions Matrix
 
