@@ -15,12 +15,6 @@ aliases:
   - /docs/0.3.1/README/
 ---
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/pharmer/pharmer)](https://goreportcard.com/report/github.com/pharmer/pharmer)
-[![Build Status](https://travis-ci.org/pharmer/pharmer.svg?branch=master)](https://travis-ci.org/pharmer/pharmer)
-[![codecov](https://codecov.io/gh/pharmer/pharmer/branch/master/graph/badge.svg)](https://codecov.io/gh/pharmer/pharmer)
-[![Slack](http://slack.kubernetes.io/badge.svg)](http://slack.kubernetes.io/#pharmer)
-[![Twitter](https://img.shields.io/twitter/follow/appscodehq.svg?style=social&logo=twitter&label=Follow)](https://twitter.com/intent/follow?screen_name=AppsCodeHQ)
-
 # pharmer
 <img src="https://raw.githubusercontent.com/cncf/artwork/master/projects/kubernetes/certified-kubernetes/1.13/color/certified-kubernetes-1.13-color.png" align="right" width="200px">Kubernetes Cluster Manager for [Kubeadm](https://github.com/kubernetes/kubeadm). Think `kops using kubeadm`!
 
