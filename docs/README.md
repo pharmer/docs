@@ -1,3 +1,20 @@
+---
+title: Welcome | Pharmer
+description: Welcome to Pharmer
+menu:
+  docs_0.3.1:
+    identifier: readme
+    name: Readme
+    parent: welcome
+    weight: -1
+menu_name: docs_0.3.1
+section_menu_id: welcome
+url: /docs/0.3.1/welcome/
+aliases:
+  - /docs/0.3.1/
+  - /docs/0.3.1/README/
+---
+
 [![Go Report Card](https://goreportcard.com/badge/github.com/pharmer/pharmer)](https://goreportcard.com/report/github.com/pharmer/pharmer)
 [![Build Status](https://travis-ci.org/pharmer/pharmer.svg?branch=master)](https://travis-ci.org/pharmer/pharmer)
 [![codecov](https://codecov.io/gh/pharmer/pharmer/branch/master/graph/badge.svg)](https://codecov.io/gh/pharmer/pharmer)

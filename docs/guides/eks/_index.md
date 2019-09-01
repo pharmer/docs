@@ -1,10 +1,11 @@
 ---
-title: Amazon EKS
+title: Guides | EKS
 menu:
-  product_pharmer_0.3.2:
-    identifier: eks
-    name: Amazon EKS
-    parent: cloud
-    weight: 30
-menu_name: product_pharmer_0.3.2
+  docs_0.3.1:
+    identifier: eks-guides
+    name: EKS
+    parent: guides
+    weight: 10
+menu_name: docs_0.3.1
 ---
+

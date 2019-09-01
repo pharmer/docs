@@ -2,18 +2,17 @@
 title: Support | Pharmer
 description: Support
 menu:
-  docs_0.3.2:
-    identifier: support-cli
+  docs_0.3.1:
+    identifier: support
     name: Support
     parent: welcome
     weight: 10
-menu_name: docs_0.3.2
+menu_name: docs_0.3.1
 section_menu_id: welcome
-url: /docs/0.3.2/welcome/support/
+url: /docs/0.3.1/welcome/support/
 aliases:
-  - /docs/0.3.2/support/
+  - /docs/0.3.1/support/
 ---
-
 
 # Support
 

@@ -1,3 +1,15 @@
+---
+title: GCE Quickstart
+menu:
+  docs_0.3.1:
+    identifier: gce-readme-quickstart
+    name: Quickstart
+    parent: gce-quickstart-gce
+    weight: 10
+menu_name: docs_0.3.1
+section_menu_id: guides
+---
+
 # Running Kubernetes on Google Cloud Service
 
 Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster) on [Google Cloud Service](https://console.cloud.google.com).
@@ -36,7 +48,8 @@ We want to create a cluster with following information:
 For location code and sku details click [hrere](https://github.com/pharmer/cloud/blob/master/data/json/apis/cloud.pharmer.io/v1/cloudproviders/gce.json)
 
 Available options in `pharmer` to create a cluster are:
- ```console
+
+```console
  $ pharmer create cluster -h
  Create a Kubernetes cluster for a given cloud provider
 
@@ -149,7 +162,7 @@ spec:
     metadata:
       name: g1
       namespace: default
-      creationTimestamp: 
+      creationTimestamp:
     spec:
       clusterNetwork:
         services:
@@ -164,7 +177,7 @@ spec:
           kind: GCEMachineProviderSpec
           apiVersion: gceproviderconfig/v1alpha1
           metadata:
-            creationTimestamp: 
+            creationTimestamp:
           roles:
           - Master
           zone: us-central1-f
@@ -213,6 +226,7 @@ status:
 
 
 You can modify this configuration by:
+
 ```console
 $ pharmer edit cluster g1
 ```
@@ -224,7 +238,7 @@ Up to now we've only been working locally.
 
 To apply run:
 
- ```console
+```console
 $ pharmer apply g1
 ```
 
@@ -247,7 +261,7 @@ spec:
     metadata:
       name: g1
       namespace: default
-      creationTimestamp: 
+      creationTimestamp:
       annotations:
         gce.clusterapi.k8s.io/firewallg1-allow-api-public: 'true'
         gce.clusterapi.k8s.io/firewallg1-allow-cluster-internal: 'true'
@@ -265,7 +279,7 @@ spec:
           kind: GCEMachineProviderSpec
           apiVersion: gceproviderconfig/v1alpha1
           metadata:
-            creationTimestamp: 
+            creationTimestamp:
           project: ackube
           caKeyPair:
             cert: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN1RENDQWFDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFOTVFzd0NRWURWUVFERXdKallUQWUKRncweE9UQTFNVGN3TXpJNE16bGFGdzB5T1RBMU1UUXdNekk0TXpsYU1BMHhDekFKQmdOVkJBTVRBbU5oTUlJQgpJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBdVZ2RE1SRjNRdlY4UDhyQzAxRkFNT095CkQxZnpiUWVGRWpSaUUzVytoeVdEUzRMK2xGVkNxOXVJcEhRRnozOUdvMmdCTzk0L3FaSkM0ZkMyWFY5UGRZckgKSFY3MDlnUFNrNmZTSjh0Zk54bFBISHRmbDFTNTcyZk51anF3ank4NXpsTXhUeXFpUWtTZFhReTkrclBZdmZWVApkVDNvY293YjJnNHVzN3dMaEt3bkt5c2l0V0dvUlFZRkJ3SC95SlZPUnhEdG5BZnZLVEIxcnpPdktrWUJTSjA1CitZK0R1OEdqWjFJa053VTJwWjE4aGw0eVNya0Q4VmpnYktmYUtkdy9UZno4QzBJbEZnY2U0SUhRcWVtcW02UmwKTytMRHdHK3JQeHBIQUFLRVk0aHlBOGhaV3l0QVpyZHFHY1lRT0RxUW9hZDJYQlFGSkJSN1pDQm1XZEFjc1FJRApBUUFCb3lNd0lUQU9CZ05WSFE4QkFmOEVCQU1DQXFRd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBTkJna3Foa2lHCjl3MEJBUXNGQUFPQ0FRRUFhU1ZZQ0RlWHgvSGJGWWtWaldhYzYvNmZ5cGVnWmYvOGx5b1U0NjI2UGR4eUlDQWcKWmF1QXhhYUhHVEl4NjRGeHQyZUlscGhSejNFRm01Z3hTc1lMV1E0eFRuQ3dkWGRTeGxGdFgwRUEybi9PczlaRwpHeUtNSW1KNjR6UldVeWhxWXRudFRkQkZDS1gwbnZ3NUdScEhWL2kyeGJGQWpvZGEzWnRWN1lBcVhDRHQvcE9mCnpxbS9LOHVCMnJPeFlzeVhMZEpEWGkwbStRQ1AxN0VRMWk1YkFjOEJ4THRidzA2eXBzTDdJVzJMeWVnVFZMaGgKQnJER0h4eWlCZmhOTXhUM2V6SVpYZ05GZHVrYlBydkZ3L0pSTnBNeEFTd1hKRFE1QmxrYkJTY01VdXJ3WFdNKwpSVFhES3NZYVowQ2o4U1NFUEdGbjhXbWViODN2TURhOXZhVjJxQT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
@@ -302,7 +316,7 @@ spec:
         apiVersion: gceproviderconfig/v1alpha1
         kind: GCEClusterProviderStatus
         metadata:
-          creationTimestamp: 
+          creationTimestamp:
   config:
     masterCount: 3
     cloud:
@@ -351,12 +365,14 @@ To get the `kubectl` configuration file(kubeconfig) on your local filesystem run
 ```console
 $ pharmer use cluster g1
 ```
+
 If you don't have `kubectl` installed click [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 Now you can run `kubectl get nodes` and verify that your kubernetes v1.13.5 is running.
 
 
 Now you can run `kubectl get nodes` and verify that your kubernetes 1.13.5 is running.
+
 ```console
 $ kubectl get nodes
 NAME                       STATUS   ROLES    AGE     VERSION
@@ -365,10 +381,6 @@ g1-master-1                Ready    master   3m10s   v1.13.5
 g1-master-2                Ready    master   2m7s    v1.13.5
 n1-standard-2-pool-5pft6   Ready    node     56s     v1.13.5
 ```
-
-
-
-
 
 
 ### Cluster Scaling
@@ -414,13 +426,13 @@ metadata:
     set: controlplane
 spec:
   metadata:
-    creationTimestamp: 
+    creationTimestamp:
   providerSpec:
     value:
       kind: GCEMachineProviderSpec
       apiVersion: gceproviderconfig/v1alpha1
       metadata:
-        creationTimestamp: 
+        creationTimestamp:
       roles:
       - Master
       zone: us-central1-f
@@ -501,7 +513,7 @@ spec:
           kind: GCEMachineProviderSpec
           apiVersion: gceproviderconfig/v1alpha1
           metadata:
-            creationTimestamp: 
+            creationTimestamp:
           roles:
           - Node
           zone: us-central1-f
@@ -546,7 +558,7 @@ spec:
           kind: GCEMachineProviderSpec
           apiVersion: gceproviderconfig/v1alpha1
           metadata:
-            creationTimestamp: 
+            creationTimestamp:
           roles:
           - Node
           zone: us-central1-f
@@ -569,6 +581,7 @@ You can also update number of nodes of an existing machine-set and machine-deplo
 $ kubectl edit <machineset-name>
 $ kubectl edit <machinedeployment-name>
 ```
+
 and update the `spec.replicas` field
 
 #### Delete nodes
@@ -578,6 +591,7 @@ You can delete machines using
 ```console
 $ kubectl delete machine <machine-name>
 ```
+
 Warning: if the machine is controlled by a machineset, a new machine will be created. You should update/delete machineset in that case
 
 You can delete machine-set and machine-deployments using

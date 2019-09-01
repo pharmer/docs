@@ -1,3 +1,15 @@
+---
+title: AWS Quickstart
+menu:
+  docs_0.3.1:
+    identifier: aws-readme-quickstart
+    name: Quickstart
+    parent: aws-quickstart-aws
+    weight: 10
+menu_name: docs_0.3.1
+section_menu_id: guides
+---
+
 # Running Kubernetes on AWS
 
 Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster) on [AWS](https://aws.amazon.com)
@@ -13,6 +25,7 @@ To store your cluster  and credential resource, you can configure pharmer to use
 ### Credential importing
 
 You can create a credential named `aws` by running
+
 ```console
 $ pharmer create credential aws
 ```
@@ -51,7 +64,8 @@ We want to create a cluster with following information:
 For location code and sku details click [hrere](https://github.com/pharmer/cloud/blob/master/data/json/apis/cloud.pharmer.io/v1/cloudproviders/aws.json)
 
 Available options in `pharmer` to create a cluster are:
- ```console
+
+```console
  $ pharmer create cluster -h
  Create a Kubernetes cluster for a given cloud provider
 
@@ -89,7 +103,7 @@ Global Flags:
       --stderrthreshold severity         logs at or above this threshold go to stderr
   -v, --v Level                          log level for V logs
       --vmodule moduleSpec               comma-separated list of pattern=N settings for file-filtered logging
- ```
+```
 
 So, we need to run following command to create cluster with our information.
 
@@ -106,7 +120,6 @@ $ pharmer create cluster aws-1 \
 To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/networking.md)
 
 The directory structure of the storage provider will be look like:
-
 
 ```console
 $ tree ~/.pharmer/store.d/$USER/clusters/
@@ -136,7 +149,6 @@ $ tree ~/.pharmer/store.d/$USER/clusters/
 6 directories, 15 files
 ```
 
-
 Here,
   - `machine`: conntains information about the master machines to be deployed
   - `machineset`: contains information about the machinesets to be deployed
@@ -146,7 +158,7 @@ Here,
 
 You can view your cluster configuration file by following command.
 
- 
+
 ```yaml
 $ pharmer get cluster aws-1 -o yaml
 apiVersion: cluster.pharmer.io/v1beta1
@@ -248,6 +260,7 @@ status:
 
 
 You can modify this configuration by:
+
 ```console
 $ pharmer edit cluster aws-1
 ```
@@ -259,13 +272,12 @@ Up to now we've only been working locally.
 
 To apply run:
 
- ```console
+```console
 $ pharmer apply aws-1
 ```
 
 Now, `pharmer` will apply that configuration, this create a Kubernetes cluster. After completing task the configuration file of the cluster will be look like
 
- 
 ```yaml
 $ pharmer get cluster aws-1 -o yaml
 apiVersion: cluster.pharmer.io/v1beta1
@@ -563,11 +575,10 @@ ip-10-0-0-27.ec2.internal    Ready    node     5m37s   v1.13.5
 ip-10-0-0-71.ec2.internal    Ready    master   8m36s   v1.13.5
 
 
-
-
 You can ssh to the nodes from bastion node.
 
 First, ssh to bastion node
+
 ```console
 $ cd ~/.pharmer/store.d/$USER/clusters/aws-1/ssh/
 $ ssh-add id_aws-1-sshkey
@@ -578,7 +589,7 @@ Then you can ssh to any node in the cluster from bastion node using its private 
 
 ```console
 ubuntu@ip-10-0-1-245:~$ ssh 10.0.0.71
-ubuntu@ip-10-0-0-71:~$ 
+ubuntu@ip-10-0-0-71:~$
 ```
 
 
@@ -707,7 +718,7 @@ spec:
 
 You can create new machine-deployments by deploying the following yaml
 
- 
+
 
 ```yaml
 apiVersion: cluster.k8s.io/v1alpha1

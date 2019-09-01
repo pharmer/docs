@@ -1,8 +1,19 @@
+---
+title: AWS Credentials
+menu:
+  docs_0.3.1:
+    identifier: aws-readme-credentials
+    name: Credentials
+    parent: aws-credentials-aws
+    weight: 10
+menu_name: docs_0.3.1
+section_menu_id: guides
+---
+
 # AWS Credential
 
-
 ## Before You Begin
-You need to have AWS access key ID and AWS secret access key 
+You need to have AWS access key ID and AWS secret access key
 
 ### Access key ID & Secret Access Key
 In order to create cluster within [AWS](https://aws.amazon.com/), `pharmer` needs a dedicated IAM user. `pharmer` use this user's API credential.
@@ -13,7 +24,7 @@ You can get the Access key ID and Secret Access key by following methods:
 
 From the console, click your username. Then a list will appear. From the list select `My Security Credentials`.
 Then click the button `create access key`.
-Then you can copy the Access key ID and Secret Access key from there. 
+Then you can copy the Access key ID and Secret Access key from there.
 
 From aws cli,
 If you have installed [aws cli](http://docs.aws.amazon.com/cli/latest/userguide/installing.html) locally, then you can use the following
@@ -48,6 +59,7 @@ Here, `aws` is the credential name, which must be unique within your storage.
 
 
 You can also create credential from environment variables
+
 ```console
 $ export AWS_ACCESS_KEY_ID=<aws access key ID>
 $ export AWS_SECRET_ACCESS_KEY=<aws secret key>
@@ -55,6 +67,7 @@ $ pharmer create credential <credential-name> --provider aws --from-env
 ```
 
 You can also create credentials from file. Create a file in this format
+
 ```json
 {
   "accessKeyID": "your aws access key ID",
@@ -63,17 +76,21 @@ You can also create credentials from file. Create a file in this format
 ```
 
 now run
+
 ```console
 $ pharmer create credential <credential-name> --provider aws --from-file <path-to-file>
 ```
 
 ## View Credential
+
 You can view list of credentials you created by running
+
 ```console
 $ pharmer get credentials
 ```
 
 To view the credential you created, run
+
 ```yaml
 $ pharmer get credentials aws -o yaml
 apiVersion: v1beta1
@@ -94,13 +111,17 @@ Here,
 
 
 ## Edit credential
+
 You can edit your created credential by running
+
 ```console
 $ phrmer edit credential <credential-name>
 ```
 
 ## Delete credential
+
 You can delete your credential by running
+
 ```console
 $ pharmer delete credential <credential-name>
 ```

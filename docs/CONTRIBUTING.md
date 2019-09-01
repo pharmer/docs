@@ -2,16 +2,16 @@
 title: Contributing | Pharmer
 description: Contributing
 menu:
-  docs_0.3.2:
-    identifier: contributing-cli
+  docs_0.3.1:
+    identifier: contributing
     name: Contributing
     parent: welcome
     weight: 10
-menu_name: docs_0.3.2
+menu_name: docs_0.3.1
 section_menu_id: welcome
-url: /docs/0.3.2/welcome/contributing/
+url: /docs/0.3.1/welcome/contributing/
 aliases:
-  - /docs/0.3.2/CONTRIBUTING/
+  - /docs/0.3.1/CONTRIBUTING/
 ---
 
 # Contribution Guidelines

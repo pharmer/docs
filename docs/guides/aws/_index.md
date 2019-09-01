@@ -1,10 +1,11 @@
 ---
-title: AWS
+title: Guides | AWS
 menu:
-  product_pharmer_0.3.2:
-    identifier: aws
+  docs_0.3.1:
+    identifier: aws-guides
     name: AWS
-    parent: cloud
-    weight: 5
-menu_name: product_pharmer_0.3.2
+    parent: guides
+    weight: 10
+menu_name: docs_0.3.1
 ---
+

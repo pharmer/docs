@@ -1,10 +1,11 @@
 ---
-title: DigitalOcean
+title: Guides | DigitalOcean
 menu:
-  product_pharmer_0.3.2:
-    identifier: digital-ocean
+  docs_0.3.1:
+    identifier: digitalocean-guides
     name: DigitalOcean
-    parent: cloud
-    weight: 20
-menu_name: product_pharmer_0.3.2
+    parent: guides
+    weight: 10
+menu_name: docs_0.3.1
 ---
+

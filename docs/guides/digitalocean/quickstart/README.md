@@ -1,4 +1,16 @@
-# Running Kubernetes on Digitalocean
+---
+title: DigitalOcean Quickstart
+menu:
+  docs_0.3.1:
+    identifier: digitalocean-readme-quickstart
+    name: Quickstart
+    parent: digitalocean-quickstart-digitalocean
+    weight: 10
+menu_name: docs_0.3.1
+section_menu_id: guides
+---
+
+# Running Kubernetes on DigitalOcean
 
 Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster) on [DigitalOcean](https://cloud.digitalocean.com).
 
@@ -13,6 +25,7 @@ To store your cluster  and credential resource, you can configure pharmer to use
 ### Credential importing
 
 You can create a credential named `digitalocean` by running
+
 ```console
 $ pharmer create credential digitalocean
 ```
@@ -42,7 +55,8 @@ We want to create a cluster with following information:
 For location code and sku details click [hrere](https://github.com/pharmer/cloud/blob/master/data/json/apis/cloud.pharmer.io/v1/cloudproviders/digitalocean.json)
 
 Available options in `pharmer` to create a cluster are:
- ```console
+
+```console
  $ pharmer create cluster -h
  Create a Kubernetes cluster for a given cloud provider
 
@@ -97,7 +111,6 @@ $ pharmer create cluster digitalocean-1 \
 To know about [pod networks](https://kubernetes.io/docs/concepts/cluster-administration/networking/) supports in `pharmer` click [here](/docs/networking.md)
 
 The directory structure of the storage provider will be look like:
-
 
 
 ```console
@@ -199,6 +212,7 @@ status:
 
 
 You can modify this configuration by:
+
 ```console
 $ pharmer edit cluster d1
 ```
@@ -210,7 +224,7 @@ Up to now we've only been working locally.
 
 To apply run:
 
- ```console
+```console
 $ pharmer apply d1
 ```
 
@@ -314,10 +328,10 @@ To get the `kubectl` configuration file(kubeconfig) on your local filesystem run
 ```console
 $ pharmer use cluster d1
 ```
+
 If you don't have `kubectl` installed click [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
 Now you can run `kubectl get nodes` and verify that your kubernetes v1.13.5 is running.
-
 
 ```console
 $ kubectl get nodes
@@ -328,10 +342,6 @@ d1-master-0      Ready    master   29m   v1.13.5
 d1-master-1      Ready    master   14m   v1.13.5
 d1-master-2      Ready    master   13m   v1.13.5
 ```
-
-
-
-
 
 ### Cluster Scaling
 

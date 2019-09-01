@@ -1,10 +1,11 @@
 ---
-title: GKE
+title: Guides | GKE
 menu:
-  product_pharmer_0.3.2:
-    identifier: gke
+  docs_0.3.1:
+    identifier: gke-guides
     name: GKE
-    parent: cloud
-    weight: 35
-menu_name: product_pharmer_0.3.2
+    parent: guides
+    weight: 10
+menu_name: docs_0.3.1
 ---
+

@@ -1,16 +1,13 @@
 ---
-title: Virtual File System
+title: Virtual File System | Pharmer DataStore
 menu:
-  product_pharmer_0.3.1:
-    identifier: vfs
+  docs_0.3.1:
+    identifier: vfs-datastore-concepts
     name: VFS
-    parent: cli
+    parent: datastore-concepts
     weight: 10
-product_name: pharmer
-menu_name: product_pharmer_0.3.1
-section_menu_id: cli
-aliases:
-  - /products/pharmer/0.3.1/cli/
+menu_name: docs_0.3.1
+section_menu_id: concepts
 ---
 
 ## Virtual file system (Vfs)

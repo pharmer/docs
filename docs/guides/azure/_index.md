@@ -1,10 +1,11 @@
 ---
-title: Azure
+title: Guides | Azure
 menu:
-  product_pharmer_0.3.2:
-    identifier: azure
+  docs_0.3.1:
+    identifier: azure-guides
     name: Azure
-    parent: cloud
-    weight: 15
-menu_name: product_pharmer_0.3.2
+    parent: guides
+    weight: 10
+menu_name: docs_0.3.1
 ---
+

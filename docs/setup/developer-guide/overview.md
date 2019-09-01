@@ -1,18 +1,15 @@
 ---
-title: Overview | Developer Guide
-description: Developer Guide Overview
+title: Developer Guide
 menu:
-  product_pharmer_0.3.2:
+  docs_0.3.1:
     identifier: developer-guide-readme
     name: Overview
     parent: developer-guide
-    weight: 15
-product_name: pharmer
-menu_name: product_pharmer_0.3.2
-section_menu_id: developer-guide
-url: /products/pharmer/0.3.2/developer-guide/
+    weight: 10
+menu_name: docs_0.3.1
+section_menu_id: setup
 aliases:
-  - /products/pharmer/0.3.2/developer-guide/README/
+  - /docs/0.3.1/setup/developer-guide/
 ---
 
 ## Development Guide
@@ -32,12 +29,14 @@ development environment, please follow [these instructions](https://golang.org/d
 
 #### Download Source
 Using `go get`
+
 ```console
 $ go get -u github.com/pharmer/pharmer
 $ cd $(go env GOPATH)/src/github.com/pharmer/pharmer
 ```
 
 Using `git`
+
 ```console
 $ git clone git@github.com:pharmer/pharmer.git $(go env GOPATH)/src/github.com/pharmer/pharmer
 $ cd $(go env GOPATH)/src/github.com/pharmer/pharmer
@@ -47,6 +46,7 @@ $ cd $(go env GOPATH)/src/github.com/pharmer/pharmer
 You need to have docker and GNU-make installed
 
 #### Build Binary
+
 ```console
 $ make build
 $ ./bin/linux_amd64/pharmer version
@@ -62,6 +62,7 @@ $ go mod vendor
 ```
 
 #### Generate CLI Reference Docs
+
 ```console
 $ ./hack/gendocs/make.sh
 ```

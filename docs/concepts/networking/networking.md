@@ -2,17 +2,13 @@
 title: Networking | Pharmer
 description: Networking of Pharmer
 menu:
-  product_pharmer_0.3.1:
-    identifier: networking-pharmer
+  docs_0.3.1:
+    identifier: networking-networking-concepts
     name: Networking
-    parent: getting-started
+    parent: networking-concepts
     weight: 30
-product_name: pharmer
-menu_name: product_pharmer_0.3.1
-section_menu_id: getting-started
-url: /products/pharmer/0.3.1/getting-started/networking/
-aliases:
-  - /products/pharmer/0.3.1/networking/
+menu_name: docs_0.3.1
+section_menu_id: concepts
 ---
 
 # Pod Networking

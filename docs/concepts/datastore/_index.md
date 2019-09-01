@@ -1,9 +1,11 @@
 ---
-title: Pharmer CLI
+title: Datastore Concepts
 menu:
-  product_pharmer_0.3.1:
-    identifier: cli
-    name: CLI
-    weight: 30
-menu_name: product_pharmer_0.3.1
+  docs_0.3.1:
+    identifier: datastore-concepts
+    name: Datastore
+    parent: concepts
+    weight: 1
+menu_name: docs_0.3.1
 ---
+

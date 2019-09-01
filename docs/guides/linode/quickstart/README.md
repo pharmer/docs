@@ -1,3 +1,15 @@
+---
+title: Linode Quickstart
+menu:
+  docs_0.3.1:
+    identifier: linode-readme-quickstart
+    name: Quickstart
+    parent: linode-quickstart-linode
+    weight: 10
+menu_name: docs_0.3.1
+section_menu_id: guides
+---
+
 # Running Kubernetes Linode
 
 Following example will use `pharmer` to create a Kubernetes cluster with 1 worker nodes and 3 master nodes (i,e, 4 nodes in your cluster) on [Linode](https://linode.com).
@@ -13,6 +25,7 @@ To store your cluster  and credential resource, you can configure pharmer to use
 ### Credential importing
 
 You can create a credential named `linode` by running
+
 ```console
 $ pharmer create credential linode
 ```
@@ -42,7 +55,8 @@ We want to create a cluster with following information:
 For location code and sku details click [hrere](https://github.com/pharmer/cloud/blob/master/data/json/apis/cloud.pharmer.io/v1/cloudproviders/linode.json)
 
 Available options in `pharmer` to create a cluster are:
- ```console
+
+```console
  $ pharmer create cluster -h
  Create a Kubernetes cluster for a given cloud provider
 
@@ -153,7 +167,7 @@ spec:
     metadata:
       name: l1
       namespace: default
-      creationTimestamp: 
+      creationTimestamp:
     spec:
       clusterNetwork:
         services:
@@ -168,7 +182,7 @@ spec:
           kind: LinodeClusterProviderConfig
           apiVersion: linodeproviderconfig/v1alpha1
           metadata:
-            creationTimestamp: 
+            creationTimestamp:
     status: {}
   config:
     masterCount: 1
@@ -199,6 +213,7 @@ status:
 
 
 You can modify this configuration by:
+
 ```console
 $ pharmer edit cluster l1
 ```
@@ -210,7 +225,7 @@ Up to now we've only been working locally.
 
 To apply run:
 
- ```console
+```console
 $ pharmer apply l1
 ```
 
@@ -234,7 +249,7 @@ spec:
     metadata:
       name: l1
       namespace: default
-      creationTimestamp: 
+      creationTimestamp:
     spec:
       clusterNetwork:
         services:
@@ -249,14 +264,14 @@ spec:
           apiVersion: linodeproviderconfig/v1alpha1
           kind: LinodeClusterProviderConfig
           metadata:
-            creationTimestamp: 
+            creationTimestamp:
     status:
       apiEndpoints:
       - host: 96.126.119.162
         port: 6443
       providerStatus:
         metadata:
-          creationTimestamp: 
+          creationTimestamp:
         network:
           apiServerLb:
             client_conn_throttle: 20
@@ -312,6 +327,7 @@ Now you can run `kubectl get nodes` and verify that your kubernetes v1.13.5 is r
 
 
 Now you can run `kubectl get nodes` and verify that your kubernetes 1.13.5 is running.
+
 ```console
 $ kubectl get nodes
 NAME                       STATUS   ROLES    AGE     VERSION
@@ -320,10 +336,6 @@ l1-master-1                Ready    master   3m10s   v1.13.5
 l1-master-2                Ready    master   2m7s    v1.13.5
 g6-standard-2-pool-5pft6   Ready    node     56s     v1.13.5
 ```
-
-
-
-
 
 ### Cluster Scaling
 
@@ -335,7 +347,6 @@ Scaling a cluster refers following meanings
 - Delete existing machine, machine-set and machine-deployments
 
 You can see the machine and machine-sets deployed in the cluster
-
 
 ```console
 $ kubectl get machines
@@ -350,9 +361,8 @@ NAME                 AGE
 g6-standard-2-pool   5m
 ```
 
-
-
 #### Deploy new master machines
+
 You can create new master machine by the deploying the following yaml
 
 ```yaml
@@ -380,12 +390,9 @@ spec:
     controlPlane: v1.13.5
 ```
 
-
-
 #### Create new worker machines
 
 You can create new worker machines by deploying the following yaml
-
 
 ```yaml
 kind: Machine
@@ -411,7 +418,6 @@ spec:
   versions:
     kubelet: v1.13.5
 ```
-
 
 #### Create new machinesets
 
@@ -457,7 +463,6 @@ spec:
 
 You can create new machine-deployments by deploying the following yaml
 
-
 ```yaml
 kind: MachineDeployment
 apiVersion: cluster.k8s.io/v1alpha1
@@ -481,7 +486,7 @@ spec:
       providerSpec:
         value:
           kind: LinodeClusterProviderConfig
-          apiVersion: linodeproviderconfig/v1alpha1 
+          apiVersion: linodeproviderconfig/v1alpha1
           roles:
           - Node
           region: us-central
@@ -501,6 +506,7 @@ You can also update number of nodes of an existing machine-set and machine-deplo
 $ kubectl edit <machineset-name>
 $ kubectl edit <machinedeployment-name>
 ```
+
 and update the `spec.replicas` field
 
 #### Delete nodes
@@ -510,6 +516,7 @@ You can delete machines using
 ```console
 $ kubectl delete machine <machine-name>
 ```
+
 Warning: if the machine is controlled by a machineset, a new machine will be created. You should update/delete machineset in that case
 
 You can delete machine-set and machine-deployments using

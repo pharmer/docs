@@ -1,12 +1,11 @@
 ---
 title: Pharmer Config View
 menu:
-  product_pharmer_0.3.1:
+  docs_0.3.1:
     identifier: pharmer-config-view
     name: Pharmer Config View
     parent: reference
-product_name: pharmer
-menu_name: product_pharmer_0.3.1
+menu_name: docs_0.3.1
 section_menu_id: reference
 ---
 ## pharmer config view

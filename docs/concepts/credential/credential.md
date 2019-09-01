@@ -1,19 +1,13 @@
 ---
 title: Credential | Pharmer
-description: Credential of Pharmer
 menu:
-  product_pharmer_0.3.1:
-    identifier: credential-pharmer
+  docs_0.3.1:
+    identifier: credential-credential-concepts
+    parent: credential-concepts
     name: Credential
-    parent: getting-started
-    weight: 20
-product_name: pharmer
-menu_name: product_pharmer_0.3.1
-section_menu_id: getting-started
-url: /products/pharmer/0.3.1/getting-started/credential/
-aliases:
-  - /products/pharmer/0.3.1/
-  - /products/pharmer/0.3.1/credential/
+    weight: 15
+menu_name: docs_0.3.1
+section_menu_id: concepts
 ---
 
 # Credential
