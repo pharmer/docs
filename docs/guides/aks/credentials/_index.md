@@ -1,11 +1,11 @@
 ---
 title: Credentials
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: aks-credentials-aks
     name: Credentials
     parent: aks-guides
     weight: 30
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 ---
 

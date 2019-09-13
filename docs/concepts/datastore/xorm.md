@@ -1,12 +1,12 @@
 ---
 title: Database | Pharmer DataStore
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: xorm-datastore-concepts
     name: XORM
     parent: datastore-concepts
     weight: 15
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: concepts
 ---
 

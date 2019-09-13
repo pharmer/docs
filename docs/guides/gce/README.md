@@ -1,16 +1,16 @@
 ---
 title: GCE
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: gce-readme
     name: GCE
     parent: gce-guides
     weight: 10
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: guides
-url: /docs/0.3.1/guides/gce/
+url: /docs/{{ .version }}/guides/gce/
 aliases:
-  - /docs/0.3.1/guides/gce/README/
+  - /docs/{{ .version }}/guides/gce/README/
 ---
 
 # User Guides

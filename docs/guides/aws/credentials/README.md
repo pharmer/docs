@@ -1,16 +1,16 @@
 ---
 title: AWS Credentials
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: aws-readme-credentials
     name: Credentials
     parent: aws-credentials-aws
     weight: 10
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: guides
-url: /docs/0.3.1/guides/aws/credentials/
+url: /docs/{{ .version }}/guides/aws/credentials/
 aliases:
-  - /docs/0.3.1/guides/aws/credentials/README/
+  - /docs/{{ .version }}/guides/aws/credentials/README/
 ---
 
 # AWS Credential

@@ -1,16 +1,16 @@
 ---
 title: AWS Quickstart
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: aws-readme-quickstart
     name: Quickstart
     parent: aws-quickstart-aws
     weight: 10
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: guides
-url: /docs/0.3.1/guides/aws/quickstart/
+url: /docs/{{ .version }}/guides/aws/quickstart/
 aliases:
-  - /docs/0.3.1/guides/aws/quickstart/README/
+  - /docs/{{ .version }}/guides/aws/quickstart/README/
 ---
 
 # Running Kubernetes on AWS
@@ -38,11 +38,11 @@ Follow this guide for more information [here](/docs/guides/aws/credentials/)
 #### Cluster IAM User
 
  While creating cluster within AWS `pharmer` creates following IAM roles and policies
- * [IAM master policy](https://github.com/pharmer/pharmer/blob/0.3.1/cloud/providers/aws/iam.go#L6)
- * [IAM controller policy](https://github.com/pharmer/pharmer/blob/0.3.1/cloud/providers/aws/iam.go#L77)
- * [IAM master role](https://github.com/pharmer/pharmer/blob/0.3.1/cloud/providers/aws/iam.go#L160)
- * [IAM node policy](https://github.com/pharmer/pharmer/blob/0.3.1/cloud/providers/aws/iam.go#L175)
- * [IAM node role](https://github.com/pharmer/pharmer/blob/0.3.1/cloud/providers/aws/iam.go#L200)
+ * [IAM master policy](https://github.com/pharmer/pharmer/blob/{{< param "info.version" >}}/cloud/providers/aws/iam.go#L6)
+ * [IAM controller policy](https://github.com/pharmer/pharmer/blob/{{< param "info.version" >}}/cloud/providers/aws/iam.go#L77)
+ * [IAM master role](https://github.com/pharmer/pharmer/blob/{{< param "info.version" >}}/cloud/providers/aws/iam.go#L160)
+ * [IAM node policy](https://github.com/pharmer/pharmer/blob/{{< param "info.version" >}}/cloud/providers/aws/iam.go#L175)
+ * [IAM node role](https://github.com/pharmer/pharmer/blob/{{< param "info.version" >}}/cloud/providers/aws/iam.go#L200)
 
 
 ### Cluster provisioning

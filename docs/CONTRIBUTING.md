@@ -2,16 +2,16 @@
 title: Contributing | Pharmer
 description: Contributing
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: contributing
     name: Contributing
     parent: welcome
     weight: 10
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: welcome
-url: /docs/0.3.1/welcome/contributing/
+url: /docs/{{ .version }}/welcome/contributing/
 aliases:
-  - /docs/0.3.1/CONTRIBUTING/
+  - /docs/{{ .version }}/CONTRIBUTING/
 ---
 
 # Contribution Guidelines

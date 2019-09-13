@@ -1,11 +1,11 @@
 ---
 title: Guides | Azure
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: azure-guides
     name: Azure
     parent: guides
     weight: 10
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 ---
 

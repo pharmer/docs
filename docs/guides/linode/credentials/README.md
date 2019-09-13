@@ -1,16 +1,16 @@
 ---
 title: Linode Credentials
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: linode-readme-credentials
     name: Credentials
     parent: linode-credentials-linode
     weight: 10
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: guides
-url: /docs/0.3.1/guides/linode/credentials/
+url: /docs/{{ .version }}/guides/linode/credentials/
 aliases:
-  - /docs/0.3.1/guides/linode/credentials/README/
+  - /docs/{{ .version }}/guides/linode/credentials/README/
 ---
 
 # Linode Credential

@@ -2,9 +2,9 @@
 title: Reference
 description: Pharmer CLI Reference
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: reference
     name: Reference
     weight: 1000
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 ---

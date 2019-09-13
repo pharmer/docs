@@ -1,11 +1,11 @@
 ---
 title: Pharmer Get Nodegroup
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: pharmer-get-nodegroup
     name: Pharmer Get Nodegroup
     parent: reference
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: reference
 ---
 ## pharmer get nodegroup

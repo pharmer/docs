@@ -1,16 +1,16 @@
 ---
 title: DigitalOcean Quickstart
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: digitalocean-readme-quickstart
     name: Quickstart
     parent: digitalocean-quickstart-digitalocean
     weight: 10
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: guides
-url: /docs/0.3.1/guides/digitalocean/quickstart/
+url: /docs/{{ .version }}/guides/digitalocean/quickstart/
 aliases:
-  - /docs/0.3.1/guides/digitalocean/quickstart/README/
+  - /docs/{{ .version }}/guides/digitalocean/quickstart/README/
 ---
 
 # Running Kubernetes on DigitalOcean
