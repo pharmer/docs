@@ -1,11 +1,11 @@
 ---
 title: GCE Credentials
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: gce-credentials-gce
     name: Credentials
     parent: gce-guides
     weight: 30
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 ---
 

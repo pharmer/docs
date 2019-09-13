@@ -1,16 +1,16 @@
 ---
 title: GKE Quickstart
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: gke-readme-quickstart
     name: Quickstart
     parent: gke-quickstart-gke
     weight: 10
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: guides
-url: /docs/0.3.1/guides/gke/quickstart/
+url: /docs/{{ .version }}/guides/gke/quickstart/
 aliases:
-  - /docs/0.3.1/guides/gke/quickstart/README/
+  - /docs/{{ .version }}/guides/gke/quickstart/README/
 ---
 
 # Running Kubernetes on Google Kubernetes Engine

@@ -1,10 +1,10 @@
 ---
 title: Guides | Pharmer
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: guides
     name: Guides
     weight: 40
     pre: dropdown
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 ---

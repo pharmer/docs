@@ -1,16 +1,16 @@
 ---
 title: EKS Credentials
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: eks-readme-credentials
     name: Credentials
     parent: eks-credentials-eks
     weight: 10
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: guides
-url: /docs/0.3.1/guides/eks/credentials/
+url: /docs/{{ .version }}/guides/eks/credentials/
 aliases:
-  - /docs/0.3.1/guides/eks/credentials/README/
+  - /docs/{{ .version }}/guides/eks/credentials/README/
 ---
 
 # AWS Credential

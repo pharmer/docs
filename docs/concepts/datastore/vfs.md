@@ -1,12 +1,12 @@
 ---
 title: Virtual File System | Pharmer DataStore
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: vfs-datastore-concepts
     name: VFS
     parent: datastore-concepts
     weight: 10
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: concepts
 ---
 

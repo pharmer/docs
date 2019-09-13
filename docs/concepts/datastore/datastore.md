@@ -1,12 +1,12 @@
 ---
 title: DataStore | Pharmer
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: datastore-datastore-concepts
     name: DataStore
     parent: datastore-concepts
     weight: 20
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: concepts
 ---
 

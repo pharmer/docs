@@ -1,16 +1,16 @@
 ---
 title: Azure Credentials
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: azure-readme-credentials
     name: Credentials
     parent: azure-credentials-azure
     weight: 10
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: guides
-url: /docs/0.3.1/guides/azure/credentials/
+url: /docs/{{ .version }}/guides/azure/credentials/
 aliases:
-  - /docs/0.3.1/guides/azure/credentials/README/
+  - /docs/{{ .version }}/guides/azure/credentials/README/
 ---
 
 # Azure Credential

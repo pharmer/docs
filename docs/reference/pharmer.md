@@ -1,16 +1,16 @@
 ---
 title: Pharmer
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: pharmer
     name: Pharmer
     parent: reference
     weight: 0
 
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: reference
 aliases:
-  - /docs/0.3.1/reference/
+  - /docs/{{ .version }}/reference/
 
 ---
 ## pharmer

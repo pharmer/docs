@@ -1,11 +1,11 @@
 ---
 title: Pharmer Get Cluster
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: pharmer-get-cluster
     name: Pharmer Get Cluster
     parent: reference
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: reference
 ---
 ## pharmer get cluster

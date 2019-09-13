@@ -1,11 +1,11 @@
 ---
 title: Pharmer Config Set-Context
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: pharmer-config-set-context
     name: Pharmer Config Set-Context
     parent: reference
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: reference
 ---
 ## pharmer config set-context

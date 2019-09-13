@@ -1,11 +1,11 @@
 ---
 title: Pharmer Edit
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: pharmer-edit
     name: Pharmer Edit
     parent: reference
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: reference
 ---
 ## pharmer edit

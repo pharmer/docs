@@ -1,16 +1,16 @@
 ---
 title: GKE Credentials
 menu:
-  docs_0.3.1:
+  docs_{{ .version }}:
     identifier: gke-readme-credentials
     name: Credentials
     parent: gke-credentials-gke
     weight: 10
-menu_name: docs_0.3.1
+menu_name: docs_{{ .version }}
 section_menu_id: guides
-url: /docs/0.3.1/guides/gke/credentials/
+url: /docs/{{ .version }}/guides/gke/credentials/
 aliases:
-  - /docs/0.3.1/guides/gke/credentials/README/
+  - /docs/{{ .version }}/guides/gke/credentials/README/
 ---
 
 # GCE Credential
