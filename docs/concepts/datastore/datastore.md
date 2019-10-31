@@ -12,8 +12,8 @@ section_menu_id: concepts
 
 # Pharmer Datastore
 
-To store your cluster  and credential resource, `pharmer` use [vfs](/docs/cli/vfs.md) as default storage
-provider. There is another provider [postgres database](/docs/cli/xorm.md) available for storing resources.
+To store your cluster  and credential resource, `pharmer` use [vfs](vfs.md) as default storage
+provider. There is another provider [postgres database](xorm.md) available for storing resources.
 
 Pharmer supports following storage provider
 

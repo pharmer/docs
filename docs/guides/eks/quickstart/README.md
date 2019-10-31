@@ -50,7 +50,7 @@ Here, we discuss how to use `pharmer` to create a Kubernetes cluster on `Amazon 
     - Number of nodes: 1
     - Node sku: t2.medium
     - Kubernetes version: 1.10
-    - Credential name: [aws](/docs/cloud/aws/README.md#credential-importing)
+    - Credential name: [aws](/docs/guides/aws/credentials/README.md)
 
 For location code and sku details click [hrere](https://github.com/pharmer/cloud/blob/master/data/json/apis/cloud.pharmer.io/v1/cloudproviders/eks.json)
 
