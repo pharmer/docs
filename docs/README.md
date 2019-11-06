@@ -16,36 +16,18 @@ aliases:
 ---
 
 # pharmer
-<img src="https://raw.githubusercontent.com/cncf/artwork/master/projects/kubernetes/certified-kubernetes/1.13/color/certified-kubernetes-1.13-color.png" align="right" width="200px">Kubernetes Cluster Manager for [Kubeadm](https://github.com/kubernetes/kubeadm). Think `kops using kubeadm`!
+<img src="https://raw.githubusercontent.com/cncf/artwork/master/projects/kubernetes/certified-kubernetes/1.13/color/certified-kubernetes-1.13-color.png" align="right" width="200px">A [Kops](https://github.com/kubernetes/kops) like Kubernetes Cluster Manager for [Kubeadm](https://github.com/kubernetes/kubeadm). Think `kops using kubeadm`!
 
-This project is spread over 3 repositories:
-
-- [pharmer/pharmer](https://github.com/pharmer/pharmer): A [Kops](https://github.com/kubernetes/kops) like cluster manager using `Kubeadm`. Supported cloud providers:
-  - [Amazon Web Services](https://aws.amazon.com/)
-  - [Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html)
-  - [DigitalOcean](https://www.digitalocean.com/)
-  - [Google Cloud](https://cloud.google.com/compute/)
-  - [Google Kubernetes Engine GKE](https://cloud.google.com/kubernetes-engine/)
-  - [Linode](https://www.linode.com/)
-  - [Microsoft Azure](https://azure.microsoft.com/en-us/)
-  - [Azure Kubernetes Servic AKS](https://docs.microsoft.com/en-us/azure/aks/)
-  - [Packet](https://www.packet.net/)
-
-- [pharmer/pre-k](https://github.com/pharmer/pre-k): Contains [a set of handy commands](https://github.com/pharmer/pre-k/blob/master/docs/reference/pre-k.md) that you run before `kubeadm init`.
-
-- [pharmer/cloud-controller-manager](https://github.com/pharmer/cloud-controller-manager): Implements Cloud Controller manager for following cloud providers:
-  - [Packet](https://www.packet.net/)
-
-## User Guide
- - [Create & manage a Kubernetes cluster in AWS EC2](/docs/guides/aws/)
- - [Create & manage a Kubernetes cluster in Amazon EKS](/docs/guides/eks/)
- - [Create & manage a Kubernetes cluster in Google Cloud](/docs/guides/gce/)
- - [Create & manage a Kubernetes cluster in Google Kubernetes Engine](/docs/guides/gke/)
- - [Create & manage a Kubernetes cluster in Microsoft Azure](/docs/guides/azure/)
- - [Create & manage a Kubernetes cluster in Azure Kubernetes Servic](/docs/guides/aks/)
- - [Create & manage a Kubernetes cluster in DigitalOcean](/docs/guides/digitalocean/)
- - [Create & manage a Kubernetes cluster in Linode](/docs/guides/linode/)
- - [Create & manage a Kubernetes cluster in Packet](/docs/guides/packet/)
+Supported cloud providers are:
+  - [Amazon Web Services](guides/aws)
+  - [Amazon EKS](guides/eks)
+  - [DigitalOcean](guides/digitalocean)
+  - [Google Cloud](guides/gce)
+  - [Google Kubernetes Engine GKE](guides/gke)
+  - [Linode](guides/linode)
+  - [Microsoft Azure](guides/azure)
+  - [Azure Kubernetes Servic AKS](guides/aks)
+  - [Packet](guides/packet)
 
 ## Supported Versions Matrix
 
