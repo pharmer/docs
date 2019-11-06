@@ -16,18 +16,20 @@ aliases:
 ---
 
 # pharmer
+
 <img src="https://raw.githubusercontent.com/cncf/artwork/master/projects/kubernetes/certified-kubernetes/1.13/color/certified-kubernetes-1.13-color.png" align="right" width="200px">A [Kops](https://github.com/kubernetes/kops) like Kubernetes Cluster Manager for [Kubeadm](https://github.com/kubernetes/kubeadm). Think `kops using kubeadm`!
 
 Supported cloud providers are:
-  - [Amazon Web Services](guides/aws)
-  - [Amazon EKS](guides/eks)
-  - [DigitalOcean](guides/digitalocean)
-  - [Google Cloud](guides/gce)
-  - [Google Kubernetes Engine GKE](guides/gke)
-  - [Linode](guides/linode)
-  - [Microsoft Azure](guides/azure)
-  - [Azure Kubernetes Servic AKS](guides/aks)
-  - [Packet](guides/packet)
+
+- [Amazon Web Services](guides/aws)
+- [Amazon EKS](guides/eks)
+- [DigitalOcean](guides/digitalocean)
+- [Google Cloud](guides/gce)
+- [Google Kubernetes Engine GKE](guides/gke)
+- [Linode](guides/linode)
+- [Microsoft Azure](guides/azure)
+- [Azure Kubernetes Servic AKS](guides/aks)
+- [Packet](guides/packet)
 
 ## Supported Versions Matrix
 
@@ -42,6 +44,7 @@ Supported cloud providers are:
 | 0.1.0-rc.4      | &#10003;  | &#10003;   | &#10007;   | &#10007;   | &#10007;| &#10007;
 
 ## Contribution guidelines
+
 Want to help improve Pharmer? Please start [here](/docs/CONTRIBUTING.md).
 
 ---
@@ -51,6 +54,7 @@ Want to help improve Pharmer? Please start [here](/docs/CONTRIBUTING.md).
 ---
 
 ## Support
+
 We use Slack for public discussions. To chit chat with us or the rest of the community, join us in the [Kubernetes Slack team](https://kubernetes.slack.com/messages/C81LSKMPE/details/) channel `#pharmer`. To sign up, use our [Slack inviter](http://slack.kubernetes.io/).
 
 To receive product announcements, please join our [mailing list](https://groups.google.com/forum/#!forum/pharmer) or follow us on [Twitter](https://twitter.com/AppsCodeHQ). Our mailing list is also used to share design docs shared via Google docs.
