@@ -34,9 +34,7 @@ This project is spread over 3 repositories:
 - [pharmer/pre-k](https://github.com/pharmer/pre-k): Contains [a set of handy commands](https://github.com/pharmer/pre-k/blob/master/docs/reference/pre-k.md) that you run before `kubeadm init`.
 
 - [pharmer/cloud-controller-manager](https://github.com/pharmer/cloud-controller-manager): Implements Cloud Controller manager for following cloud providers:
-  - [Linode](https://www.linode.com/)
   - [Packet](https://www.packet.net/)
-  - [Digitalocean](https://digitalocean.com)
 
 ## User Guide
  - [Create & manage a Kubernetes cluster in AWS EC2](/docs/guides/aws/)
@@ -53,6 +51,7 @@ This project is spread over 3 repositories:
 
 | pharmer version | k8s 1.9.x | k8s 1.10.x | k8s 1.11.x | k8s 1.12.x | k8s 1.13.x | k8s 1.14.x
 |-----------------|-----------|------------|------------|------------|---------|---------------
+| 0.5.2           | &#10007;  | &#10007;   | &#10007;   |&#10007;    | &#10003;| &#10003;
 | 0.3.1           | &#10007;  | &#10007;   | &#10007;   |&#10007;    | &#10003;| &#10003;
 | 0.3.0           | &#10007;  | &#10007;   | &#10007;   |&#10007;    | &#10003;| &#10003;
 | 0.2.0           | &#10007;  | &#10007;   | &#10007;   | &#10003;   | &#10003;| &#10007;

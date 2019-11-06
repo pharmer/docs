@@ -20,10 +20,10 @@ aliases:
 You need to have Project ID and API Key
 
 ## Project ID
-From [packet](https://app.packet.net), Select `Project Settings`, You'll find the `Project ID` there.
+From [packet](https://app.packet.net), select `Project Settings`. You'll find the `Project ID` there.
 
 ## API key
-From [packet](https://app.packet.net), Select your profile icon, Then Select `API Keys`. Then add new API key or use any existing one.
+From [packet](https://app.packet.net), select your profile icon, then select `API Keys`. Create a new API key or use any existing one.
 
 ## Create Credential
 From command line, run
@@ -31,7 +31,7 @@ From command line, run
 ```console
 $ pharmer create credential <credential-name>
 ```
-select packet as cloud provider. You will be prompted to enter `Project ID` and `API Key`
+Select packet as cloud provider. You will be prompted to enter `Project ID` and `API Key`
 
 You can also create credential from environment variables
 
