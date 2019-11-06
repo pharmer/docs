@@ -31,15 +31,6 @@ $ sudo mv pharmer-linux-amd64 /usr/local/bin/pharmer
 
 Feel free to leave off `sudo mv pharmer /usr/local/bin` if you would like to add pharmer to your path manually.
 
-### Linux i368
-
-```console
-$ curl -LO https://github.com/pharmer/pharmer/releases/download/{{< param "info.version" >}}/pharmer-linux-386
-$ chmod +x pharmer-linux-386
-$ sudo mv pharmer-linux-386 /usr/local/bin/pharmer
-```
-Feel free to leave off `sudo mv pharmer /usr/local/bin` if you would like to add pharmer to your path manually.
-
 ### Linux arm64
 
 ```console
